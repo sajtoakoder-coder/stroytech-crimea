@@ -1,7 +1,5 @@
 const { Resend } = require('resend');
 
-const resend = new Resend(process.env.RESEND_KEY);
-
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -14,6 +12,8 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'name и phone обязательны' });
 
   try {
+    const resend = new Resend(process.env.RESEND_KEY);
+
     const result = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: 'sajtoakoder@gmail.com',
@@ -31,10 +31,10 @@ module.exports = async function handler(req, res) {
       `,
     });
 
-    console.log('Resend result:', JSON.stringify(result));
+    console.log('Resend OK:', JSON.stringify(result));
     res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Resend error:', err?.message, err?.response?.data);
+    console.error('Resend error:', err?.message);
     res.status(500).json({ error: 'email send failed' });
   }
 };
