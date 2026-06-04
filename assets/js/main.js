@@ -1,5 +1,5 @@
   // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
-  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxSy1gMAcYTGqEVDCIVfGMECKDCHTpICtEacPd6jcO9kIfmvVmeeHInX7TBjGhwbmzcuA/exec';
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyZqAfHTrf75fin0Ax3ogQx0Nd0GN-oZwETw-7veRhv1Bx9xvwXs_Ml-lOx8N4fkfy2dw/exec';
 
   // ─── REDUCED MOTION ───
   const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -343,10 +343,8 @@
 
       setLoading(true);
       try {
-        await fetch(SHEETS_URL, {
-          method: 'POST',
+        await fetch(SHEETS_URL + '?' + new URLSearchParams(payload).toString(), {
           mode: 'no-cors',
-          body: new URLSearchParams(payload),
         });
 
         contactForm.style.transition = 'opacity .3s';
