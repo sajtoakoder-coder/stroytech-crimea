@@ -1,5 +1,5 @@
   // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
-  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyZqAfHTrf75fin0Ax3ogQx0Nd0GN-oZwETw-7veRhv1Bx9xvwXs_Ml-lOx8N4fkfy2dw/exec';
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwahlqfi8_WUHOh0LWJtcv-by7F-CX0fB48ivvrayfESWnpH0-ycAai5W8P30k_SKmL/exec';
 
   // ─── REDUCED MOTION ───
   const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -348,6 +348,13 @@
         return;
       }
 
+      // Turnstile: проверяем наличие токена
+      const tsToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+      if (!tsToken) {
+        showError('Подтвердите что вы не робот.');
+        return;
+      }
+
       const fd = new FormData(contactForm);
       const raw = Object.fromEntries(fd.entries());
       // Обрезаем длинные поля и убираем лишние пробелы
@@ -358,6 +365,7 @@
         budget:  (raw.budget  || '').slice(0, 50),
         city:    (raw.city    || '').trim().slice(0, 100),
         message: (raw.message || '').trim().slice(0, 1000),
+        ts:      tsToken,
       };
 
       setLoading(true);
@@ -367,6 +375,7 @@
         });
 
         sessionStorage.setItem('_ls', Date.now().toString());
+        if (window.turnstile) window.turnstile.reset();
         contactForm.style.transition = 'opacity .3s';
         contactForm.style.opacity = '0';
         setTimeout(() => {
