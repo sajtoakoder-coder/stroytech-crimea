@@ -1,3 +1,6 @@
+  // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwB1wKU4Dbs7jsURJrq-KT36d4YMb0gXIcYeZAflm0MQOcLAn9X1EW8SovQkpNyPKuyBQ/exec';
+
   // ─── REDUCED MOTION ───
   const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -340,12 +343,11 @@
 
       setLoading(true);
       try {
-        const res = await fetch('/api/lead', {
+        await fetch(SHEETS_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          mode: 'no-cors',
+          body: new URLSearchParams(payload),
         });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
 
         contactForm.style.transition = 'opacity .3s';
         contactForm.style.opacity = '0';
