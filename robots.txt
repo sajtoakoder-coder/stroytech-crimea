@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stroytech-crimea.ru/sitemap.xml

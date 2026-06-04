@@ -314,6 +314,13 @@
         return;
       }
 
+      // Rate limit: не чаще раза в 30 секунд с одного браузера
+      const lastSent = parseInt(sessionStorage.getItem('_ls') || '0');
+      if (Date.now() - lastSent < 30000) {
+        showError('Заявка уже отправлена. Подождите 30 секунд перед повторной отправкой.');
+        return;
+      }
+
       let valid = true;
       [nameInput, telInput].forEach(el => {
         if (!el) return;
@@ -323,6 +330,10 @@
       if (telInput && telInput.value.trim() && !PHONE_RE.test(telInput.value.trim())) {
         telInput.classList.add('error');
         valid = false;
+      }
+      // Лимит длины полей
+      if (nameInput && nameInput.value.trim().length > 100) {
+        nameInput.classList.add('error'); valid = false;
       }
 
       if (!valid) {
@@ -338,8 +349,16 @@
       }
 
       const fd = new FormData(contactForm);
-      const payload = Object.fromEntries(fd.entries());
-      // website (honeypot) оставляем — его проверяет сервер
+      const raw = Object.fromEntries(fd.entries());
+      // Обрезаем длинные поля и убираем лишние пробелы
+      const payload = {
+        name:    (raw.name    || '').trim().slice(0, 100),
+        phone:   (raw.phone   || '').trim().slice(0, 20),
+        service: (raw.service || '').slice(0, 100),
+        budget:  (raw.budget  || '').slice(0, 50),
+        city:    (raw.city    || '').trim().slice(0, 100),
+        message: (raw.message || '').trim().slice(0, 1000),
+      };
 
       setLoading(true);
       try {
@@ -347,6 +366,7 @@
           mode: 'no-cors',
         });
 
+        sessionStorage.setItem('_ls', Date.now().toString());
         contactForm.style.transition = 'opacity .3s';
         contactForm.style.opacity = '0';
         setTimeout(() => {
