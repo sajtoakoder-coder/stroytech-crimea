@@ -10,7 +10,9 @@
       "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(k\\) for k in d.get\\('mcpServers',{}\\).keys\\(\\)]\")",
       "Bash(# Check for MCP servers in claude desktop config or any other config *)",
       "Bash(curl -s -o /dev/null -w '%{http_code} %{size_download}b' https://raw.githubusercontent.com/sajtoakoder-coder/stroytech-assets/main/__TRACKED_VAR__)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(read f *)",
+      "Bash([ ! -f \"/Users/kirillkovalev/Documents/Tex_Stroy/$f\" ])"
     ]
   }
 }
