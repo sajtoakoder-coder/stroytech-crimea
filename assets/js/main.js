@@ -349,11 +349,10 @@
         return;
       }
 
-      // Turnstile: проверяем наличие токена
-      const tsToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+      // Turnstile: берём токен если есть, но не блокируем отправку
+      const tsToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
       if (!tsToken) {
-        showError('Подтвердите что вы не робот.');
-        return;
+        console.warn('[Form] Turnstile-токен отсутствует, отправляем без него');
       }
 
       const fd = new FormData(contactForm);
@@ -369,11 +368,13 @@
         ts:      tsToken,
       };
 
+      console.log('[Form] Отправляем в таблицу:', { name: payload.name, phone: payload.phone, city: payload.city });
       setLoading(true);
       try {
         await fetch(SHEETS_URL + '?' + new URLSearchParams(payload).toString(), {
           mode: 'no-cors',
         });
+        console.log('[Form] fetch завершён (no-cors, ответ не виден)');
 
         sessionStorage.setItem('_ls', Date.now().toString());
         if (window.turnstile) window.turnstile.reset();
