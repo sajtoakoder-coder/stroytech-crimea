@@ -1661,13 +1661,29 @@
    АДАПТИВ — модалка на мобильном
    ============================================================ */
   @media (max-width: 680px) {
+    /* Карточка проекта — выезжает снизу */
     .pmodal { padding: 0; align-items: flex-end; }
     .pmodal__wrap { max-width: 100%; border-radius: 16px 16px 0 0; max-height: 92svh; }
     .pmodal__inner { grid-template-columns: 1fr; }
     .pmodal__img-wrap { min-height: 200px; max-height: 220px; }
     .pmodal__info-col { padding: 22px 20px 20px; border-left: none; border-top: 1px solid var(--border); overflow-y: auto; }
     .pmodal__desc { -webkit-line-clamp: 2; }
-    .plan-overlay__box { padding: 20px 16px 16px; max-width: 100%; }
+
+    /* 2D план — тоже выезжает снизу */
+    .plan-overlay { padding: 0; align-items: flex-end; }
+    .plan-overlay__box {
+      max-width: 100%;
+      border-radius: 16px 16px 0 0;
+      padding: 20px 16px 16px;
+      max-height: 88svh;
+    }
+    .plan-overlay__img-wrap {
+      min-height: 0;
+      flex: 1;
+    }
+    .plan-tabs { gap: 6px; }
+    .plan-tab { padding: 6px 10px; font-size: 8px; }
+    .plan-overlay__header { padding-right: 44px; }
   }
 
 /* ============================================================
