@@ -328,7 +328,6 @@
     transition: background .15s, transform .15s;
     -webkit-clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
     clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-    will-change: transform;
   }
   .btn-primary:hover { background: var(--amber-l); transform: translateY(-2px); }
   .btn-outline {
@@ -342,7 +341,6 @@
     padding: 18px 36px;
     text-decoration: none;
     transition: border-color .15s, color .15s, transform .15s;
-    will-change: transform;
   }
   .btn-outline:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
   /* ACCESSIBILITY — keyboard focus */
@@ -491,11 +489,13 @@
     height: 2px;
     background: var(--amber);
     z-index: 10;
-    width: 0%;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
   }
   @keyframes sliderProgress {
-    from { width: 0%; }
-    to   { width: 100%; }
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
   }
   @media(max-width: 900px) {
     .hero-logo-img { height: 120px; }
