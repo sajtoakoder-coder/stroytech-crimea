@@ -294,12 +294,12 @@
   }
   .hero-logo-wrap { display: block; margin-bottom: 24px; }
   .hero-logo-img {
-    height: 180px;
+    height: 240px;
     width: auto;
     display: block;
   }
   .hero-label { margin-bottom: 32px; }
-  .hero-title { color: var(--text); margin-bottom: 0; font-size: clamp(28px, 4vw, 56px); }
+  .hero-title { color: var(--text); margin-bottom: 0; font-size: clamp(20px, 2.8vw, 38px); }
   .hero-title .accent { color: var(--amber); }
   .hero-title .outline {
     display: block;
@@ -500,7 +500,7 @@
     to   { transform: scaleX(1); }
   }
   @media(max-width: 900px) {
-    .hero-logo-img { height: 120px; }
+    .hero-logo-img { height: 160px; }
     #hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-right {
       display: flex;
