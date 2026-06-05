@@ -12,7 +12,10 @@
       "Bash(curl -s -o /dev/null -w '%{http_code} %{size_download}b' https://raw.githubusercontent.com/sajtoakoder-coder/stroytech-assets/main/__TRACKED_VAR__)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(read f *)",
-      "Bash([ ! -f \"/Users/kirillkovalev/Documents/Tex_Stroy/$f\" ])"
+      "Bash([ ! -f \"/Users/kirillkovalev/Documents/Tex_Stroy/$f\" ])",
+      "Bash(pnpm dlx *)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md\" -o /Users/kirillkovalev/.claude/skills/frontend-design.md)",
+      "mcp___magicuidesign_mcp__getRegistryItem"
     ]
   }
 }
