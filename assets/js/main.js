@@ -527,11 +527,10 @@
   }
 
   function openPlan(floorIdx) {
-    floorIdx = floorIdx || 0;
+    if (floorIdx === undefined) floorIdx = 0;
     var planTabsEl = document.getElementById('planTabs');
-    var planTitle  = document.getElementById('planFloorTitle');
 
-    /* Строим переключатель этажей */
+    /* Строим / обновляем табы */
     planTabsEl.innerHTML = '';
     if (currentPlans.length > 1) {
       currentPlans.forEach(function(pl, i) {
@@ -546,9 +545,8 @@
       planTabsEl.style.display = 'none';
     }
 
+    /* Показываем нужный план */
     var current = currentPlans[floorIdx];
-    if (planTitle) planTitle.textContent = current ? current.label : '';
-
     if (current && current.src) {
       planImg.src = current.src;
       planImg.style.display = 'block';
@@ -558,7 +556,10 @@
       planImg.style.display = 'none';
       planPlaceholder.style.display = 'flex';
     }
-    planOverlay.classList.add('is-open');
+
+    if (!planOverlay.classList.contains('is-open')) {
+      planOverlay.classList.add('is-open');
+    }
   }
 
   function closePlan() {
