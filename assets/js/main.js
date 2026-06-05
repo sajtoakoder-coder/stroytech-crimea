@@ -527,7 +527,7 @@
   }
 
   function openPlan(floorIdx) {
-    if (floorIdx === undefined) floorIdx = 0;
+    if (typeof floorIdx !== 'number') floorIdx = 0;
     var planTabsEl = document.getElementById('planTabs');
 
     /* Строим / обновляем табы */
@@ -576,7 +576,7 @@
 
   pmodalClose.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);
-  pmodalPlanBtn.addEventListener('click', openPlan);
+  pmodalPlanBtn.addEventListener('click', function() { openPlan(0); });
   planClose.addEventListener('click', closePlan);
   planOverlay.querySelector('.plan-overlay__backdrop').addEventListener('click', closePlan);
 
