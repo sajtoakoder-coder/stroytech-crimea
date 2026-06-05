@@ -15,7 +15,8 @@
       "Bash([ ! -f \"/Users/kirillkovalev/Documents/Tex_Stroy/$f\" ])",
       "Bash(pnpm dlx *)",
       "Bash(curl -s \"https://raw.githubusercontent.com/anthropics/skills/refs/heads/main/skills/frontend-design/SKILL.md\" -o /Users/kirillkovalev/.claude/skills/frontend-design.md)",
-      "mcp___magicuidesign_mcp__getRegistryItem"
+      "mcp___magicuidesign_mcp__getRegistryItem",
+      "WebFetch(domain:21st.dev)"
     ]
   }
 }
