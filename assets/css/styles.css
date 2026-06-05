@@ -200,11 +200,16 @@
   }
   .nav-modal-close:hover { border-color: var(--amber); color: var(--amber); }
   .nav-modal-links {
+    position: static;
     display: flex;
     flex-direction: column;
     padding: 32px 24px;
     gap: 0;
     flex: 1;
+    border-bottom: none;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
   .nav-modal-links a {
     font-family: 'Montserrat', sans-serif;
