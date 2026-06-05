@@ -412,7 +412,10 @@
       title: 'Одноэтажный коттедж в Крыму',
       desc: 'Уютный одноэтажный дом с панорамными окнами и открытой террасой. Продуманная планировка объединяет гостиную и кухню в единое светлое пространство. Строительство под ключ — от проекта до финальной отделки.',
       img: 'assets/img/Image1-000',
-      plan: '',
+      plans: [
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project1.png' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project1.png' },
+      ],
       specs: [
         ['Площадь', '120 м²'],
         ['Этажность', '1 этаж'],
@@ -426,7 +429,10 @@
       title: 'Коттедж в пригороде Симферополя',
       desc: 'Современный загородный дом с чистыми геометрическими формами. Большие застеклённые фасады обеспечивают естественное освещение во всех комнатах. Реализован под ключ с авторским надзором.',
       img: 'assets/img/Image20',
-      plan: '',
+      plans: [
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project2.png' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project2.png' },
+      ],
       specs: [
         ['Площадь', '145 м²'],
         ['Этажность', '2 этажа'],
@@ -440,7 +446,9 @@
       title: 'Двухэтажный дом в Крыму',
       desc: 'Просторный двухэтажный коттедж с эксплуатируемой кровлей и встроенным гаражом. Нижний этаж — общественные зоны, верхний — спальни с собственными санузлами. Выполнен в стиле современного минимализма.',
       img: 'assets/img/Image32-000',
-      plan: '',
+      plans: [
+        { label: 'План', src: 'assets/img/plan1-project3.png' },
+      ],
       specs: [
         ['Площадь', '210 м²'],
         ['Этажность', '2 этажа'],
@@ -454,7 +462,10 @@
       title: 'Коттедж в Бахчисарайском районе',
       desc: 'Дом в окружении природного ландшафта с видом на горы. Фундамент на сваях адаптирован под сложный рельеф участка. Архитектура вписана в природное окружение — натуральные отделочные материалы снаружи и внутри.',
       img: 'assets/img/Image15',
-      plan: '',
+      plans: [
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project4.png' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project4.png' },
+      ],
       specs: [
         ['Площадь', '160 м²'],
         ['Этажность', '1.5 этажа'],
@@ -480,13 +491,12 @@
   var planPlaceholder = document.getElementById('planPlaceholder');
   var planClose = document.getElementById('planClose');
 
-  var currentPlan = '';
+  var currentPlans = [];
 
   function openModal(idx) {
     var p = PROJECTS[idx];
     if (!p) return;
 
-    /* Определяем расширение */
     var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('webp') > -1;
     pmodalImg.src = supportsWebP ? p.img + '.webp' : p.img + '.png';
     pmodalImg.alt = p.title;
@@ -504,7 +514,7 @@
       li.appendChild(s2);
       pmodalSpecs.appendChild(li);
     });
-    currentPlan = p.plan;
+    currentPlans = p.plans || [];
 
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
@@ -516,9 +526,31 @@
     closePlan();
   }
 
-  function openPlan() {
-    if (currentPlan) {
-      planImg.src = currentPlan;
+  function openPlan(floorIdx) {
+    floorIdx = floorIdx || 0;
+    var planTabsEl = document.getElementById('planTabs');
+    var planTitle  = document.getElementById('planFloorTitle');
+
+    /* Строим переключатель этажей */
+    planTabsEl.innerHTML = '';
+    if (currentPlans.length > 1) {
+      currentPlans.forEach(function(pl, i) {
+        var btn = document.createElement('button');
+        btn.textContent = pl.label;
+        btn.className = 'plan-tab' + (i === floorIdx ? ' is-active' : '');
+        btn.addEventListener('click', function() { openPlan(i); });
+        planTabsEl.appendChild(btn);
+      });
+      planTabsEl.style.display = 'flex';
+    } else {
+      planTabsEl.style.display = 'none';
+    }
+
+    var current = currentPlans[floorIdx];
+    if (planTitle) planTitle.textContent = current ? current.label : '';
+
+    if (current && current.src) {
+      planImg.src = current.src;
       planImg.style.display = 'block';
       planPlaceholder.style.display = 'none';
     } else {

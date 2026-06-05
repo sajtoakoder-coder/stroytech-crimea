@@ -1658,3 +1658,33 @@
     .pmodal__desc { -webkit-line-clamp: 2; }
     .plan-overlay__box { padding: 24px 18px; }
   }
+
+/* ============================================================
+   PLAN OVERLAY — переключатель этажей
+   ============================================================ */
+  .plan-overlay__header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .plan-overlay__header .plan-overlay__label { margin-bottom: 0; }
+
+  .plan-tabs {
+    display: flex; gap: 6px;
+  }
+  .plan-tab {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: .16em; text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .plan-tab:hover { border-color: var(--amber); color: var(--amber); }
+  .plan-tab.is-active {
+    border-color: var(--amber);
+    background: rgba(212,175,55,.1);
+    color: var(--amber);
+  }

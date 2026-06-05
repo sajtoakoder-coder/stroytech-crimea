@@ -75,7 +75,7 @@
 <nav id="navbar" aria-label="Основная навигация">
   <div class="container">
     <div class="nav-inner">
-      <a href="#" class="nav-logo" aria-label="СтройТех — на главную"><picture><source srcset="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.webp" type="image/webp"><img src="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.png" alt="СтройТех" class="logo-img"></picture></a>
+      <a href="#" class="nav-logo" aria-label="СтройТех — на главную"><picture><source srcset="assets/img/logo.webp" type="image/webp"><img src="assets/img/logo.png" alt="СтройТех" class="logo-img"></picture></a>
       <ul class="nav-links">
         <li><a href="#services">Услуги</a></li>
         <li><a href="#fleet">Техника</a></li>
@@ -100,7 +100,7 @@
 <!-- MOBILE MENU MODAL -->
 <div class="nav-modal" id="navModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Мобильное меню">
   <div class="nav-modal-head">
-    <a href="#" class="nav-logo" aria-hidden="true" tabindex="-1"><picture><source srcset="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.webp" type="image/webp"><img src="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.png" alt="СтройТех" class="logo-img"></picture></a>
+    <a href="#" class="nav-logo" aria-hidden="true" tabindex="-1"><picture><source srcset="assets/img/logo.webp" type="image/webp"><img src="assets/img/logo.png" alt="СтройТех" class="logo-img"></picture></a>
     <button class="nav-modal-close" type="button" id="navModalClose" aria-label="Закрыть">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -127,8 +127,8 @@
   <div class="hero-bg"></div>
   <div class="hero-left">
     <picture class="hero-logo-wrap">
-      <source srcset="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.webp" type="image/webp">
-      <img src="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.png" alt="СтройТех" class="hero-logo-img">
+      <source srcset="assets/img/logo.webp" type="image/webp">
+      <img src="assets/img/logo.png" alt="СтройТех" class="hero-logo-img">
     </picture>
     <h1 class="hero-title">
       СТРОИТЕЛЬСТВО<br>
@@ -498,7 +498,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="nav-logo"><picture><source srcset="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.webp" type="image/webp"><img src="assets/img/telegram-cloud-photo-size-2-5260706850632572610-y.png" alt="СтройТех" class="logo-img"></picture></a>
+        <a href="#" class="nav-logo"><picture><source srcset="assets/img/logo.webp" type="image/webp"><img src="assets/img/logo.png" alt="СтройТех" class="logo-img"></picture></a>
         <p>Строительство и проектирование коттеджей в Крыму. Работаем с 2009 года. Более 120 объектов сдано под ключ.</p>
       </div>
       <div class="footer-col"><h4>Услуги</h4><ul><li><a href="#services">Проектирование</a></li><li><a href="#services">Строительство</a></li><li><a href="#services">Инженерные системы</a></li><li><a href="#services">Отделка</a></li><li><a href="#rental">Аренда техники</a></li></ul></div>
@@ -591,7 +591,10 @@
     <button class="plan-overlay__close" id="planClose" aria-label="Закрыть план">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
-    <p class="plan-overlay__label">2D план</p>
+    <div class="plan-overlay__header">
+      <p class="plan-overlay__label">2D план</p>
+      <div class="plan-tabs" id="planTabs"></div>
+    </div>
     <div class="plan-overlay__img-wrap">
       <img id="planImg" src="" alt="2D план" class="plan-overlay__img">
       <div class="plan-overlay__placeholder" id="planPlaceholder">
