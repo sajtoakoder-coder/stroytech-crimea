@@ -89,8 +89,6 @@
   }
   nav.scrolled {
     background: var(--nav-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     border-color: var(--border);
   }
   .nav-inner {
@@ -297,11 +295,6 @@
     height: 180px;
     width: auto;
     display: block;
-    mix-blend-mode: multiply;
-  }
-  [data-theme="dark"] .hero-logo-img {
-    mix-blend-mode: screen;
-    filter: brightness(1.05);
   }
   .hero-label { margin-bottom: 32px; }
   .hero-title { color: var(--text); margin-bottom: 0; font-size: clamp(28px, 4vw, 56px); }
@@ -1230,8 +1223,6 @@
       padding: 10px 16px;
       padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
       gap: 8px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
     .sticky-bar-btn {
       flex: 1;
