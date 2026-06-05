@@ -84,16 +84,17 @@
   // COUNTER
   function animateCount(el) {
     const target = parseInt(el.dataset.count, 10) || 0;
+    const suffix = el.dataset.suffix || '';
     el.style.opacity = '1';
     if (REDUCED_MOTION) {
-      el.textContent = target;
+      el.textContent = target + suffix;
       return;
     }
     const duration = 1600;
     const start = performance.now();
     function update(now) {
       const t = Math.min((now - start) / duration, 1);
-      el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target);
+      el.textContent = Math.round((1 - Math.pow(1 - t, 3)) * target) + suffix;
       if (t < 1) requestAnimationFrame(update);
     }
     requestAnimationFrame(update);
