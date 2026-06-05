@@ -1,5 +1,5 @@
   // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
-  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxJt6RPZ0CQUqk0hLz5NM5yNyIhBrClN9gdB6NQkfYmiOzTAJweO3JiHT6NRLnXEd3tCg/exec';
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz-9ZL7xKRWb4FR9EA1kLs8yh-MgA9UweCkZgJmSFIMI7DKLKa290NkasqepjnOTg3F5A/exec';
 
   // ─── REDUCED MOTION ───
   const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
