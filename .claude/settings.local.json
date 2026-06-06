@@ -18,7 +18,8 @@
       "mcp___magicuidesign_mcp__getRegistryItem",
       "WebFetch(domain:21st.dev)",
       "mcp__magic__21st_magic_component_builder",
-      "Bash(node --check /Users/kirillkovalev/Documents/Tex_Stroy/assets/js/main.js)"
+      "Bash(node --check /Users/kirillkovalev/Documents/Tex_Stroy/assets/js/main.js)",
+      "Bash(node --check assets/js/main.js)"
     ]
   }
 }
