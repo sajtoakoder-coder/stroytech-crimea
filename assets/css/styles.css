@@ -141,28 +141,38 @@
     transition: color .2s;
   }
   .nav-phone:hover { color: var(--amber-l); }
+  /* ── THEME TOGGLE BUTTON ── */
   .theme-toggle {
-    width: 36px; height: 20px;
-    background: var(--border);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
     position: relative;
-    transition: background .3s;
-    flex-shrink: 0;
-  }
-  .theme-toggle::after {
-    content: '';
-    position: absolute;
-    top: 3px; left: 3px;
-    width: 14px; height: 14px;
+    width: 36px; height: 36px;
     border-radius: 50%;
-    background: var(--amber);
-    transition: transform .3s, background .3s;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .25s, border-color .25s, box-shadow .25s;
+    overflow: hidden;
   }
-  [data-theme="light"] .theme-toggle::after { transform: translateX(16px); }
-  .theme-toggle-wrap { display: flex; align-items: center; gap: 8px; }
-  .theme-icon { width: 14px; height: 14px; color: var(--muted); flex-shrink: 0; }
+  .theme-toggle:hover {
+    border-color: var(--amber);
+    background: rgba(232,160,32,.08);
+    box-shadow: 0 0 0 4px rgba(232,160,32,.10);
+  }
+  .theme-toggle__sun,
+  .theme-toggle__moon {
+    position: absolute;
+    width: 16px; height: 16px;
+    color: var(--amber);
+    transition: transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s ease;
+    pointer-events: none;
+  }
+  /* dark mode: показываем солнце (переключиться в светлое) */
+  [data-theme="dark"] .theme-toggle__sun  { transform: scale(1) rotate(0deg);   opacity: 1; }
+  [data-theme="dark"] .theme-toggle__moon { transform: scale(0) rotate(-90deg);  opacity: 0; }
+  /* light mode: показываем луну (переключиться в тёмное) */
+  [data-theme="light"] .theme-toggle__sun  { transform: scale(0) rotate(90deg);  opacity: 0; }
+  [data-theme="light"] .theme-toggle__moon { transform: scale(1) rotate(0deg);   opacity: 1; }
   .nav-burger {
     display: none; flex-direction: column; gap: 5px; cursor: pointer;
     background: none; border: none;
