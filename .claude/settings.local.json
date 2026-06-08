@@ -19,7 +19,16 @@
       "WebFetch(domain:21st.dev)",
       "mcp__magic__21st_magic_component_builder",
       "Bash(node --check /Users/kirillkovalev/Documents/Tex_Stroy/assets/js/main.js)",
-      "Bash(node --check assets/js/main.js)"
+      "Bash(node --check assets/js/main.js)",
+      "Bash(ls -la --time-style=+%H:%M Image1-000.* Image15.* Image20.* Image32-000.*)",
+      "Bash(which cwebp *)",
+      "Bash(sips --help)",
+      "Bash(sips --formats)",
+      "Bash(sips -s format webp)",
+      "Bash(sips -s format webp Image1-000.png --out /tmp/test.webp)",
+      "Bash(python3 -c \"import PIL; print\\('pillow', PIL.__version__\\)\")",
+      "Bash(brew list *)",
+      "Bash(brew install *)"
     ]
   }
 }
