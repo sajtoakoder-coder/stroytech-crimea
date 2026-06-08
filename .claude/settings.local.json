@@ -40,7 +40,11 @@
       "Bash(magick -size 512x512 xc:none -fill '#0e0e0d' -draw 'roundrectangle 0,0,511,511,96,96' /tmp/bg512.png)",
       "Bash(magick ../img/logo.png -trim +repage -resize 450x450 /tmp/logofit.png)",
       "Bash(magick /tmp/bg512.png /tmp/logofit.png -gravity center -composite /tmp/fav512.png)",
-      "Bash(sips -g pixelWidth -g pixelHeight /tmp/logofit.png)"
+      "Bash(sips -g pixelWidth -g pixelHeight /tmp/logofit.png)",
+      "Bash(magick logo.png -trim +repage /tmp/lt.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /tmp/lt.png)",
+      "Bash(magick -size 512x512 xc:none -fill \"#0e0e0d\" -draw \"roundrectangle 0,0,511,511,80,80\" /tmp/bg.png)",
+      "Bash(magick /tmp/bg.png \\\\\\( /tmp/lt.png -resize 430x430 \\\\\\) -gravity center -composite /tmp/master.png)"
     ]
   }
 }
