@@ -34,7 +34,13 @@
       "Bash(grep -nE '\\(^|[^.]\\)\\\\bmain\\\\b[^-]|body\\\\s*\\\\{|html\\\\s*\\\\{|body,' assets/css/styles.css)",
       "Bash(awk '/id=\"stats\"/,/<\\\\/section>/' index.html)",
       "Bash(git config *)",
-      "Bash(magick -version)"
+      "Bash(magick -version)",
+      "Bash(magick logo.png -crop 490x490+20+160 +repage /tmp/emblem_test.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /tmp/emblem_test.png)",
+      "Bash(magick -size 512x512 xc:none -fill '#0e0e0d' -draw 'roundrectangle 0,0,511,511,96,96' /tmp/bg512.png)",
+      "Bash(magick ../img/logo.png -trim +repage -resize 450x450 /tmp/logofit.png)",
+      "Bash(magick /tmp/bg512.png /tmp/logofit.png -gravity center -composite /tmp/fav512.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /tmp/logofit.png)"
     ]
   }
 }
