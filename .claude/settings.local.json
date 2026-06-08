@@ -31,7 +31,9 @@
       "Bash(brew install *)",
       "mcp__Claude_Preview__preview_start",
       "mcp__magic__21st_magic_component_inspiration",
-      "Bash(grep -nE '\\(^|[^.]\\)\\\\bmain\\\\b[^-]|body\\\\s*\\\\{|html\\\\s*\\\\{|body,' assets/css/styles.css)"
+      "Bash(grep -nE '\\(^|[^.]\\)\\\\bmain\\\\b[^-]|body\\\\s*\\\\{|html\\\\s*\\\\{|body,' assets/css/styles.css)",
+      "Bash(awk '/id=\"stats\"/,/<\\\\/section>/' index.html)",
+      "Bash(git config *)"
     ]
   }
 }
