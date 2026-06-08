@@ -30,7 +30,8 @@
       "Bash(brew list *)",
       "Bash(brew install *)",
       "mcp__Claude_Preview__preview_start",
-      "mcp__magic__21st_magic_component_inspiration"
+      "mcp__magic__21st_magic_component_inspiration",
+      "Bash(grep -nE '\\(^|[^.]\\)\\\\bmain\\\\b[^-]|body\\\\s*\\\\{|html\\\\s*\\\\{|body,' assets/css/styles.css)"
     ]
   }
 }
