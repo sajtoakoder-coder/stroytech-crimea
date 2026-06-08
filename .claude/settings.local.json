@@ -29,7 +29,8 @@
       "Bash(python3 -c \"import PIL; print\\('pillow', PIL.__version__\\)\")",
       "Bash(brew list *)",
       "Bash(brew install *)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "mcp__magic__21st_magic_component_inspiration"
     ]
   }
 }
