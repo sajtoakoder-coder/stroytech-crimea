@@ -701,6 +701,29 @@
     transition: transform .4s ease;
   }
   .catalog-item:hover::after { transform: scaleX(1); }
+  /* ─── ФОТО ТЕХНИКИ в плашках: растворяется в фон под текстом через маску ─── */
+  .cat-photo {
+    position: absolute;
+    right: -4%;
+    bottom: -2%;
+    width: 64%;
+    max-width: 290px;
+    height: auto;
+    z-index: 0;
+    opacity: .5;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to top left, #000 18%, transparent 68%);
+            mask-image: linear-gradient(to top left, #000 18%, transparent 68%);
+    transition: opacity .45s ease, transform .5s ease;
+  }
+  .catalog-item:hover .cat-photo { opacity: .82; transform: scale(1.06); }
+  @media(max-width: 600px) {
+    .cat-photo { width: 48%; max-width: 200px; opacity: .4; bottom: -2%; right: -2%; }
+  }
+  .catalog-item > .cat-icon,
+  .catalog-item > .cat-title,
+  .catalog-item > .cat-desc,
+  .catalog-item > .cat-examples { position: relative; z-index: 1; }
   .cat-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--amber); opacity: .8; }
   .cat-title {
     font-family: 'Montserrat', sans-serif;
