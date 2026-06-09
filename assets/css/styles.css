@@ -705,20 +705,25 @@
   .cat-photo {
     position: absolute;
     right: -4%;
-    bottom: -2%;
-    width: 64%;
-    max-width: 290px;
+    top: -6%;
+    width: 58%;
+    max-width: 260px;
     height: auto;
     z-index: 0;
-    opacity: .5;
+    opacity: .9;
     pointer-events: none;
-    -webkit-mask-image: linear-gradient(to top left, #000 18%, transparent 68%);
-            mask-image: linear-gradient(to top left, #000 18%, transparent 68%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 42%, transparent 98%);
+            mask-image: linear-gradient(to bottom, #000 42%, transparent 98%);
     transition: opacity .45s ease, transform .5s ease;
   }
-  .catalog-item:hover .cat-photo { opacity: .82; transform: scale(1.06); }
+  /* экскаватор, самосвал, погрузчик, каток — опускаем на один уровень */
+  .catalog-item:nth-child(1) .cat-photo,
+  .catalog-item:nth-child(3) .cat-photo,
+  .catalog-item:nth-child(4) .cat-photo,
+  .catalog-item:nth-child(5) .cat-photo { top: 9%; }
+  .catalog-item:hover .cat-photo { opacity: 1; transform: scale(1.06); }
   @media(max-width: 600px) {
-    .cat-photo { width: 48%; max-width: 200px; opacity: .4; bottom: -2%; right: -2%; }
+    .cat-photo { width: 46%; max-width: 200px; opacity: .8; top: -2%; right: -2%; }
   }
   .catalog-item > .cat-icon,
   .catalog-item > .cat-title,
