@@ -58,7 +58,9 @@
       "Bash(sed -n '1285,1325p' assets/css/styles.css)",
       "Bash(grep -nA4 '\\\\.catalog-grid \\\\{|\\\\.rental-cards \\\\{' assets/css/styles.css)",
       "Bash(awk '/@media/{m=$0} /#hero|hero-bg|hero-right|hero-left/{print NR\": \"m\" >> \"$0}' assets/css/styles.css)",
-      "Bash(grep -nA3 '\\\\.why-tags' assets/css/styles.css)"
+      "Bash(grep -nA3 '\\\\.why-tags' assets/css/styles.css)",
+      "Bash(grep -nA6 '#fleet \\\\{|\\\\.fleet-intro \\\\{|\\\\.fleet-intro>' assets/css/styles.css)",
+      "Bash(grep -nA4 '\\\\.section \\\\{' assets/css/styles.css)"
     ]
   }
 }
