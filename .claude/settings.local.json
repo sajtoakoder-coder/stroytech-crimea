@@ -44,7 +44,16 @@
       "Bash(magick logo.png -trim +repage /tmp/lt.png)",
       "Bash(sips -g pixelWidth -g pixelHeight /tmp/lt.png)",
       "Bash(magick -size 512x512 xc:none -fill \"#0e0e0d\" -draw \"roundrectangle 0,0,511,511,80,80\" /tmp/bg.png)",
-      "Bash(magick /tmp/bg.png \\\\\\( /tmp/lt.png -resize 430x430 \\\\\\) -gravity center -composite /tmp/master.png)"
+      "Bash(magick /tmp/bg.png \\\\\\( /tmp/lt.png -resize 430x430 \\\\\\) -gravity center -composite /tmp/master.png)",
+      "Bash(magick logo.png -trim +repage /tmp/logo_trim.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /tmp/logo_trim.png)",
+      "Bash(magick -size 512x512 xc:none -fill \"#0e0e0d\" -draw \"roundrectangle 0,0,511,511,96,96\" /tmp/bg.png)",
+      "Bash(magick /tmp/bg.png \\\\\\( /tmp/logo_trim.png -resize 452x452 \\\\\\) -gravity center -composite /tmp/fav512.png)",
+      "Bash(magick /tmp/fav512.png -resize 192x192 favicon-192.png)",
+      "Bash(magick /tmp/fav512.png -resize 180x180 apple-touch-icon.png)",
+      "Bash(magick /tmp/fav512.png -resize 32x32 favicon-32.png)",
+      "Bash(magick /tmp/fav512.png -define icon:auto-resize=16,32,48 favicon.ico)",
+      "Bash(awk '{print $5, $9}')"
     ]
   }
 }
