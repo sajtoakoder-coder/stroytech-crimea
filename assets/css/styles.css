@@ -527,6 +527,8 @@
     .hero-left { padding: 20px 20px 16px; }
     h1 { font-size: clamp(28px, 8vw, 46px); }
     .hero-title { font-size: clamp(18px, 5.5vw, 30px); }
+    /* на телефоне контурный «В КРЫМУ» зашумляется — делаем сплошным */
+    .hero-title .outline { -webkit-text-stroke: 0; color: var(--text); }
     .hero-sub { font-size: 13px; margin: 20px 0 32px; }
     .hero-cta { flex-direction: column; gap: 10px; }
     .hero-cta .btn-primary,
