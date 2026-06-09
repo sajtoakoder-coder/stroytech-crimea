@@ -666,30 +666,7 @@
   @media(max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
 
   /* FLEET */
-  #fleet { background: var(--surface); border-top: 1px solid var(--border); position: relative; overflow: hidden; }
-  #fleet .container { position: relative; z-index: 2; }
-  /* ТЕХНИКА «выезжает» из-под текста в свободное место справа и тает в фон */
-  .fleet-machine {
-    position: absolute;
-    top: 64px;
-    right: -24px;
-    width: min(620px, 54vw);
-    z-index: 1;
-    pointer-events: none;
-  }
-  .fleet-machine svg { width: 100%; height: auto; display: block; }
-  .fleet-machine::after {
-    content: '';
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 58%;
-    background: linear-gradient(to bottom, rgba(22,22,20,0) 0%, var(--surface) 88%);
-    pointer-events: none;
-  }
-  [data-theme="light"] .fleet-machine::after {
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--surface) 88%);
-  }
-  @media(max-width: 900px) { .fleet-machine { display: none; } }
+  #fleet { background: var(--surface); border-top: 1px solid var(--border); }
   .fleet-intro {
     display: grid;
     grid-template-columns: 1fr;
