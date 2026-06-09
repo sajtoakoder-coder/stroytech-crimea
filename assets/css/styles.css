@@ -33,7 +33,6 @@
     --card-hover: #f0ede6;
     --input-bg: #f5f2ec;
   }
-  [data-theme="light"] .hero-bg::after { border-left-color: var(--border); }
 
   @media (prefers-reduced-motion: no-preference) {
     html { scroll-behavior: smooth; }
@@ -293,13 +292,6 @@
     position: absolute; inset: 0;
     background: radial-gradient(ellipse 50% 70% at 72% 55%, #ede9e0 0%, var(--bg) 65%);
   }
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    right: 0; top: 0;
-    width: 50%; height: 100%;
-    border-left: 1px solid var(--border);
-  }
   .hero-left {
     position: relative; z-index: 2;
     padding: 80px 48px 100px;
@@ -516,7 +508,6 @@
   @media(max-width: 900px) {
     .hero-logo-img { height: 140px; }
     #hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-bg::after { display: none; } /* убираем вертикальную линию-разделитель на мобиле */
     .hero-right {
       display: flex; flex-direction: column;
       padding: 0 24px 60px;
