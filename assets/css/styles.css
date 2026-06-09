@@ -678,12 +678,14 @@
   .catalog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
   }
   .catalog-item {
     background: var(--card-bg);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     padding: 36px 32px;
     position: relative;
     overflow: hidden;
@@ -1112,7 +1114,7 @@
   #rental { background: var(--bg); border-top: 1px solid var(--border); }
   .rental-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; margin-bottom: 72px; max-width: 680px; }
   .rental-grid p { font-size: 15px; color: var(--muted); line-height: 1.8; }
-  .rental-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .rental-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .rental-card {
     background: var(--card-bg);
     padding: 36px 28px;
@@ -1319,6 +1321,12 @@
       color: #0e0e0d;
       border-color: var(--amber);
       flex: 1.4;
+    }
+    .sticky-bar-btn:not(.cta) {
+      color: var(--amber);
+      border-color: var(--amber);
+      background: color-mix(in srgb, var(--amber) 12%, transparent);
+      font-weight: 700;
     }
     .sticky-bar-btn:not(.cta):hover { border-color: var(--amber); color: var(--amber); }
     .sticky-bar-btn.cta:hover { background: var(--amber-l); }
