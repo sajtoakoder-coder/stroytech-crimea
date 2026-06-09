@@ -516,6 +516,7 @@
   @media(max-width: 900px) {
     .hero-logo-img { height: 140px; }
     #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-bg::after { display: none; } /* убираем вертикальную линию-разделитель на мобиле */
     .hero-right {
       display: flex; flex-direction: column;
       padding: 0 24px 60px;
