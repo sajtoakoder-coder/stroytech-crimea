@@ -923,6 +923,8 @@
   }
   .cd-text { font-size: 12px; color: var(--muted); }
   .cd-text strong { display: block; color: var(--text); font-weight: 400; font-size: 13px; margin-bottom: 2px; }
+  .cd-phone { text-decoration: none; color: inherit; }
+  .cd-phone:hover strong { color: var(--amber); }
   /* ─── FORM CARD ─── */
   .form-card {
     position: relative;
@@ -1321,12 +1323,6 @@
       color: #0e0e0d;
       border-color: var(--amber);
       flex: 1.4;
-    }
-    .sticky-bar-btn:not(.cta) {
-      color: var(--amber);
-      border-color: var(--amber);
-      background: color-mix(in srgb, var(--amber) 12%, transparent);
-      font-weight: 700;
     }
     .sticky-bar-btn:not(.cta):hover { border-color: var(--amber); color: var(--amber); }
     .sticky-bar-btn.cta:hover { background: var(--amber-l); }
