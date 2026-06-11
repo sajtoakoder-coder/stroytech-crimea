@@ -1,0 +1,267 @@
+/* ============================================================
+   PROJECTS — данные проектов, галерея-модалка и сетка.
+   Общий файл: используется на index.html (слайдер «Наши проекты»)
+   и на projects.html (полная галерея). Данные — в одном месте.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  /* ─── ДАННЫЕ ПРОЕКТОВ ───
+     cover   — фото для плитки/слайда (без расширения, грузится .webp/.png)
+     gallery — массив фото для листания в модалке (без расширения)
+     plans   — 2D-планы по этажам
+  */
+  var PROJECTS = [
+    {
+      badge: 'Проект №1',
+      title: 'Одноэтажный коттедж в Крыму',
+      short: 'Одноэтажный дом с панорамными окнами и открытой террасой.',
+      desc: 'Уютный одноэтажный дом с панорамными окнами и открытой террасой. Продуманная планировка объединяет гостиную и кухню в единое светлое пространство. Строительство под ключ — от проекта до финальной отделки.',
+      cover: 'assets/img/Image1-000',
+      gallery: ['assets/img/Image1-000'],
+      plans: [
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project1.png' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project1.png' }
+      ],
+      specs: [
+        ['Площадь', '120 м²'],
+        ['Этажность', '1 этаж'],
+        ['Материал', 'Газобетон'],
+        ['Срок строительства', '5 месяцев'],
+        ['Расположение', 'Крым']
+      ]
+    },
+    {
+      badge: 'Проект №2',
+      title: 'Коттедж в пригороде Симферополя',
+      short: 'Современный загородный дом с чистыми геометрическими формами.',
+      desc: 'Современный загородный дом с чистыми геометрическими формами. Большие застеклённые фасады обеспечивают естественное освещение во всех комнатах. Реализован под ключ с авторским надзором.',
+      cover: 'assets/img/Image20',
+      gallery: ['assets/img/Image20'],
+      plans: [
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project2.png' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project2.png' }
+      ],
+      specs: [
+        ['Площадь', '145 м²'],
+        ['Этажность', '2 этажа'],
+        ['Материал', 'Кирпич'],
+        ['Срок строительства', '7 месяцев'],
+        ['Расположение', 'Симферополь']
+      ]
+    },
+    {
+      badge: 'Проект №3',
+      title: 'Двухэтажный дом в Крыму',
+      short: 'Просторный двухэтажный коттедж с эксплуатируемой кровлей и гаражом.',
+      desc: 'Просторный двухэтажный коттедж с эксплуатируемой кровлей и встроенным гаражом. Нижний этаж — общественные зоны, верхний — спальни с собственными санузлами. Выполнен в стиле современного минимализма.',
+      cover: 'assets/img/Image32-000',
+      gallery: ['assets/img/Image32-000'],
+      plans: [
+        { label: 'План', src: 'assets/img/plan1-project3.png' }
+      ],
+      specs: [
+        ['Площадь', '210 м²'],
+        ['Этажность', '2 этажа'],
+        ['Материал', 'Монолит + газобетон'],
+        ['Срок строительства', '9 месяцев'],
+        ['Расположение', 'Крым']
+      ]
+    },
+    {
+      badge: 'Проект №4',
+      title: 'Коттедж в Бахчисарайском районе',
+      short: 'Дом с видом на горы, фундамент на сваях под сложный рельеф.',
+      desc: 'Дом в окружении природного ландшафта с видом на горы. Фундамент на сваях адаптирован под сложный рельеф участка. Архитектура вписана в природное окружение — натуральные отделочные материалы снаружи и внутри.',
+      cover: 'assets/img/Image15',
+      gallery: ['assets/img/Image15'],
+      plans: [
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project4.png' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project4.png' }
+      ],
+      specs: [
+        ['Площадь', '160 м²'],
+        ['Этажность', '1.5 этажа'],
+        ['Материал', 'Газобетон + дерево'],
+        ['Срок строительства', '6 месяцев'],
+        ['Расположение', 'Бахчисарайский район']
+      ]
+    }
+  ];
+
+  var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('webp') > -1;
+  function imgSrc(base) { return supportsWebP ? base + '.webp' : base + '.png'; }
+
+  /* ─── СЕТКА ПРОЕКТОВ (только на projects.html) ─── */
+  var grid = document.getElementById('projectsGrid');
+  if (grid) {
+    PROJECTS.forEach(function (p, i) {
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'proj-card';
+      card.setAttribute('data-project', i);
+      card.setAttribute('aria-label', p.title);
+
+      var media = document.createElement('div');
+      media.className = 'proj-card__media';
+      var im = document.createElement('img');
+      im.src = imgSrc(p.cover);
+      im.alt = p.title;
+      im.loading = 'lazy';
+      media.appendChild(im);
+
+      var body = document.createElement('div');
+      body.className = 'proj-card__body';
+      body.innerHTML =
+        '<h3 class="proj-card__title"></h3>' +
+        '<p class="proj-card__desc"></p>' +
+        '<span class="proj-card__more">Смотреть проект ' +
+        '<svg width="14" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+      body.querySelector('.proj-card__title').textContent = p.title;
+      body.querySelector('.proj-card__desc').textContent = p.short || '';
+
+      card.appendChild(media);
+      card.appendChild(body);
+      card.addEventListener('click', function () { openModal(i); });
+      grid.appendChild(card);
+    });
+  }
+
+  /* ─── МОДАЛКА ПРОЕКТА (на обеих страницах) ─── */
+  var modal = document.getElementById('projectModal');
+  if (!modal) return; // нет модалки на странице — дальше нечего делать
+
+  var backdrop = modal.querySelector('.pmodal__backdrop');
+  var pmodalImg = document.getElementById('pmodalImg');
+  var pmodalBadge = document.getElementById('pmodalBadge');
+  var pmodalTitle = document.getElementById('pmodalTitle');
+  var pmodalDesc = document.getElementById('pmodalDesc');
+  var pmodalSpecs = document.getElementById('pmodalSpecs');
+  var pmodalPlanBtn = document.getElementById('pmodalPlanBtn');
+  var pmodalClose = document.getElementById('pmodalClose');
+  var galPrev = document.getElementById('pmodalGalPrev');
+  var galNext = document.getElementById('pmodalGalNext');
+  var galCounter = document.getElementById('pmodalGalCounter');
+
+  var planOverlay = document.getElementById('planOverlay');
+  var planImg = document.getElementById('planImg');
+  var planPlaceholder = document.getElementById('planPlaceholder');
+  var planClose = document.getElementById('planClose');
+
+  var currentPlans = [];
+  var currentGallery = [];
+  var galIdx = 0;
+
+  function showPhoto(i) {
+    if (!currentGallery.length) return;
+    galIdx = (i + currentGallery.length) % currentGallery.length;
+    pmodalImg.src = imgSrc(currentGallery[galIdx]);
+    var multi = currentGallery.length > 1;
+    if (galCounter) {
+      galCounter.textContent = (galIdx + 1) + ' / ' + currentGallery.length;
+      galCounter.style.display = multi ? '' : 'none';
+    }
+    if (galPrev) galPrev.style.display = multi ? '' : 'none';
+    if (galNext) galNext.style.display = multi ? '' : 'none';
+  }
+
+  function openModal(idx) {
+    var p = PROJECTS[idx];
+    if (!p) return;
+    currentGallery = (p.gallery && p.gallery.length) ? p.gallery : [p.cover];
+    showPhoto(0);
+    pmodalImg.alt = p.title;
+    pmodalBadge.textContent = p.badge;
+    pmodalTitle.textContent = p.title;
+    pmodalDesc.textContent = p.desc;
+    pmodalSpecs.innerHTML = '';
+    p.specs.forEach(function (s) {
+      var li = document.createElement('li');
+      var s1 = document.createElement('span');
+      var s2 = document.createElement('span');
+      s1.textContent = s[0];
+      s2.textContent = s[1];
+      li.appendChild(s1);
+      li.appendChild(s2);
+      pmodalSpecs.appendChild(li);
+    });
+    currentPlans = p.plans || [];
+
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  window.openProjectModal = openModal;
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    closePlan();
+  }
+
+  function openPlan(floorIdx) {
+    if (typeof floorIdx !== 'number') floorIdx = 0;
+    var planTabsEl = document.getElementById('planTabs');
+
+    planTabsEl.innerHTML = '';
+    if (currentPlans.length > 1) {
+      currentPlans.forEach(function (pl, i) {
+        var btn = document.createElement('button');
+        btn.textContent = pl.label;
+        btn.className = 'plan-tab' + (i === floorIdx ? ' is-active' : '');
+        btn.addEventListener('click', function () { openPlan(i); });
+        planTabsEl.appendChild(btn);
+      });
+      planTabsEl.style.display = 'flex';
+    } else {
+      planTabsEl.style.display = 'none';
+    }
+
+    var current = currentPlans[floorIdx];
+    if (current && current.src) {
+      planImg.src = current.src;
+      planImg.style.display = 'block';
+      planPlaceholder.style.display = 'none';
+    } else {
+      planImg.src = '';
+      planImg.style.display = 'none';
+      planPlaceholder.style.display = 'flex';
+    }
+
+    if (!planOverlay.classList.contains('is-open')) {
+      planOverlay.classList.add('is-open');
+    }
+  }
+
+  function closePlan() {
+    planOverlay.classList.remove('is-open');
+  }
+
+  if (galPrev) galPrev.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx - 1); });
+  if (galNext) galNext.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx + 1); });
+
+  /* Клик по слайду на главной */
+  document.querySelectorAll('.slide-clickable').forEach(function (slide) {
+    slide.addEventListener('click', function () {
+      openModal(parseInt(slide.getAttribute('data-project'), 10));
+    });
+  });
+
+  pmodalClose.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  pmodalPlanBtn.addEventListener('click', function () { openPlan(0); });
+  planClose.addEventListener('click', closePlan);
+  planOverlay.querySelector('.plan-overlay__backdrop').addEventListener('click', closePlan);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (planOverlay.classList.contains('is-open')) { closePlan(); }
+      else if (modal.classList.contains('is-open')) { closeModal(); }
+    } else if (modal.classList.contains('is-open') && !planOverlay.classList.contains('is-open')) {
+      if (e.key === 'ArrowLeft') { showPhoto(galIdx - 1); }
+      else if (e.key === 'ArrowRight') { showPhoto(galIdx + 1); }
+    }
+  });
+
+  var ctaBtn = document.getElementById('pmodalCta');
+  if (ctaBtn) ctaBtn.addEventListener('click', closeModal);
+})();

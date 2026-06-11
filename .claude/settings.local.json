@@ -60,7 +60,14 @@
       "Bash(awk '/@media/{m=$0} /#hero|hero-bg|hero-right|hero-left/{print NR\": \"m\" >> \"$0}' assets/css/styles.css)",
       "Bash(grep -nA3 '\\\\.why-tags' assets/css/styles.css)",
       "Bash(grep -nA6 '#fleet \\\\{|\\\\.fleet-intro \\\\{|\\\\.fleet-intro>' assets/css/styles.css)",
-      "Bash(grep -nA4 '\\\\.section \\\\{' assets/css/styles.css)"
+      "Bash(grep -nA4 '\\\\.section \\\\{' assets/css/styles.css)",
+      "Bash(awk '/id=\"projectModal\"/{s=NR} /id=\"planOverlay\"/{p=NR} END{print \"projectModal начинается ~\"s\", planOverlay ~\"p}' index.html)",
+      "Bash(sed -n '405p' assets/js/main.js)",
+      "Bash(sed -n '593p' assets/js/main.js)",
+      "Bash(cp assets/js/main.js /tmp/main.js.bak)",
+      "Bash(sed -i '' '405,593d' assets/js/main.js)",
+      "Bash(node --check assets/js/projects.js)",
+      "Bash(curl -s http://localhost:8124/index.html)"
     ]
   }
 }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>Наши проекты — СтройТех</title>
+<meta name="description" content="Реализованные проекты коттеджей и загородных домов в Крыму от СтройТех: фото, планировки, характеристики.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://stroytech-crimea.ru/projects.html">
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script defer src="assets/js/projects.js"></script>
+</head>
+<body class="page-projects">
+<header>
+  <div class="wrap">
+    <a href="index.html" class="brand">СтройТех</a>
+    <a class="back" href="index.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      На главную
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="projects-head">
+      <div class="label">Реализованные объекты</div>
+      <h1>НАШИ ПРОЕКТЫ</h1>
+      <p>Коттеджи и загородные дома под ключ в Крыму. Нажмите на проект — внутри фото объекта и 2D-планировка.</p>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2011–2026 СтройТех Крым. <a href="index.html">На главную</a></div>
+</footer>
+
+<!-- ===== МОДАЛКА ПРОЕКТА ===== -->
+<div id="projectModal" class="pmodal" role="dialog" aria-modal="true" aria-label="Карточка проекта">
+  <div class="pmodal__backdrop"></div>
+  <div class="pmodal__wrap">
+    <button class="pmodal__close" id="pmodalClose" aria-label="Закрыть">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="pmodal__inner">
+      <div class="pmodal__photo-col">
+        <div class="pmodal__img-wrap">
+          <img id="pmodalImg" src="" alt="Фото проекта" class="pmodal__img">
+          <div class="pmodal__img-shine"></div>
+          <button type="button" class="pmodal__gal-btn pmodal__gal-prev" id="pmodalGalPrev" aria-label="Предыдущее фото">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="pmodal__gal-btn pmodal__gal-next" id="pmodalGalNext" aria-label="Следующее фото">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="pmodal__gal-counter" id="pmodalGalCounter"></div>
+        </div>
+        <button class="pmodal__plan-btn" id="pmodalPlanBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Смотреть 2D план
+        </button>
+      </div>
+      <div class="pmodal__info-col">
+        <div class="pmodal__badge" id="pmodalBadge"></div>
+        <h2 class="pmodal__title" id="pmodalTitle"></h2>
+        <p class="pmodal__desc" id="pmodalDesc"></p>
+        <ul class="pmodal__specs" id="pmodalSpecs"></ul>
+        <a href="index.html#contact" class="pmodal__cta" id="pmodalCta">
+          Обсудить этот проект
+          <svg width="14" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h14M10 1l5 4-5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 2D ПЛАН ОВЕРЛЕЙ ===== -->
+<div id="planOverlay" class="plan-overlay" role="dialog" aria-modal="true" aria-label="2D план">
+  <div class="plan-overlay__backdrop"></div>
+  <div class="plan-overlay__box">
+    <button class="plan-overlay__close" id="planClose" aria-label="Закрыть план">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="plan-overlay__header">
+      <p class="plan-overlay__label">2D план</p>
+      <div class="plan-tabs" id="planTabs"></div>
+    </div>
+    <div class="plan-overlay__img-wrap">
+      <img id="planImg" src="" alt="2D план" class="plan-overlay__img">
+      <div class="plan-overlay__placeholder" id="planPlaceholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity=".3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        <span>2D план будет добавлен</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
