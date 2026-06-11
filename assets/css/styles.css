@@ -1968,6 +1968,40 @@
     text-transform: uppercase; color: var(--amber); transition: gap .2s;
   }
   .proj-card:hover .proj-card__more { gap: 12px; }
+  /* метка статуса «Строится» на карточке */
+  .proj-card__media { position: relative; }
+  .proj-card__tag {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 11px; border-radius: 20px;
+    background: rgba(8,8,7,.7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    border: 1px solid rgba(212,175,55,.4);
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--amber);
+  }
+  .proj-card__tag::before,
+  .pmodal__status::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+    background: var(--amber); box-shadow: 0 0 0 0 rgba(232,160,32,.5);
+    animation: tagPulse 1.8s ease-out infinite;
+  }
+  @keyframes tagPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(232,160,32,.5); }
+    70%  { box-shadow: 0 0 0 7px rgba(232,160,32,0); }
+    100% { box-shadow: 0 0 0 0 rgba(232,160,32,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .proj-card__tag::before, .pmodal__status::before { animation: none; }
+  }
+  /* статус в модалке проекта */
+  .pmodal__badge-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .pmodal__status {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 4px 11px; border-radius: 20px;
+    border: 1px solid rgba(212,175,55,.4); background: rgba(212,175,55,.08);
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--amber);
+  }
   @media(max-width: 900px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
   @media(max-width: 600px) { .projects-grid { grid-template-columns: 1fr; gap: 18px; } .page-projects main { padding: 36px 0 60px; } }
 

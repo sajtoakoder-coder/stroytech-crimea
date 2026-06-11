@@ -86,6 +86,29 @@
         ['Срок строительства', '6 месяцев'],
         ['Расположение', 'Бахчисарайский район']
       ]
+    },
+    {
+      /* TODO: заменить название/описание/характеристики на реальные */
+      badge: 'Проект №5',
+      tag: 'Строится',
+      title: 'Современный двухэтажный дом',
+      short: 'Объект в процессе строительства — двухэтажный дом с панорамным остеклением.',
+      desc: 'Двухэтажный дом с панорамным остеклением и просторной террасой. Объект сейчас в активной фазе строительства — подробное описание и характеристики появятся позже.',
+      cover: 'assets/img/project5/01',
+      gallery: [
+        'assets/img/project5/01',
+        'assets/img/project5/02',
+        'assets/img/project5/03',
+        'assets/img/project5/04'
+      ],
+      plans: [],
+      specs: [
+        ['Статус', 'В процессе строительства'],
+        ['Этажность', '2 этажа'],
+        ['Площадь', '— м²'],
+        ['Материал', '—'],
+        ['Расположение', 'Крым']
+      ]
     }
   ];
 
@@ -109,6 +132,12 @@
       im.alt = p.title;
       im.loading = 'lazy';
       media.appendChild(im);
+      if (p.tag) {
+        var tg = document.createElement('span');
+        tg.className = 'proj-card__tag';
+        tg.textContent = p.tag;
+        media.appendChild(tg);
+      }
 
       var body = document.createElement('div');
       body.className = 'proj-card__body';
@@ -134,6 +163,7 @@
   var backdrop = modal.querySelector('.pmodal__backdrop');
   var pmodalImg = document.getElementById('pmodalImg');
   var pmodalBadge = document.getElementById('pmodalBadge');
+  var pmodalStatus = document.getElementById('pmodalStatus');
   var pmodalTitle = document.getElementById('pmodalTitle');
   var pmodalDesc = document.getElementById('pmodalDesc');
   var pmodalSpecs = document.getElementById('pmodalSpecs');
@@ -172,6 +202,10 @@
     showPhoto(0);
     pmodalImg.alt = p.title;
     pmodalBadge.textContent = p.badge;
+    if (pmodalStatus) {
+      pmodalStatus.textContent = p.tag || '';
+      pmodalStatus.style.display = p.tag ? '' : 'none';
+    }
     pmodalTitle.textContent = p.title;
     pmodalDesc.textContent = p.desc;
     pmodalSpecs.innerHTML = '';
