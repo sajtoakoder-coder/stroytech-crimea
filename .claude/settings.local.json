@@ -71,7 +71,11 @@
       "Bash(cwebp -version)",
       "Bash(rm /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/*.png && echo \"done\")",
       "Bash(cwebp -q 90 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/specteh.jpg -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/specteh.webp)",
-      "Bash(cwebp -q 90 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/stroi-teh.jpg -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/stroi-teh.webp)"
+      "Bash(cwebp -q 90 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/stroi-teh.jpg -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/stroi-teh.webp)",
+      "Bash(xargs ls -la)",
+      "Bash(ffmpeg -version)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
