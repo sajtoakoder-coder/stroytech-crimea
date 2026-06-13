@@ -2089,3 +2089,5 @@
     border-radius: 20px;
     font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; color: #fff;
   }
+
+  @media(max-width: 600px) { .hide-mobile { display: none; } }
