@@ -506,7 +506,7 @@
     to   { transform: scaleX(1); }
   }
   @media(max-width: 900px) {
-    .hero-logo-img { height: 140px; }
+    .hero-logo-img { height: auto; width: 85%; max-width: 380px; }
     #hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-right {
       display: flex; flex-direction: column;
@@ -522,7 +522,7 @@
     .slide-hint { display: none; } /* на тач hint не нужен */
   }
   @media(max-width: 600px) {
-    .hero-logo-img { height: 110px; }
+    .hero-logo-img { height: auto; width: 90%; max-width: 320px; }
     .hero-slider { height: 220px; min-height: unset; }
     .hero-left { padding: 20px 20px 16px; }
     h1 { font-size: clamp(28px, 8vw, 46px); }
