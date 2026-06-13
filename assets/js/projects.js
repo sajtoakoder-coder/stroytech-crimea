@@ -143,7 +143,8 @@
         'assets/img/project7/project7-1st'
       ],
       plans: [
-        { label: '1 этаж', src: 'assets/img/project7/2dplan1.webp' }
+        { label: '1 этаж', src: 'assets/img/project7/2dplan1.webp' },
+        { label: '2 этаж', src: 'assets/img/project7/2dplan2.webp' }
       ],
       specs: [
         ['Этажность', '2 этажа'],
@@ -215,6 +216,13 @@
   var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('webp') > -1;
   function imgSrc(base) { return supportsWebP ? base + '.webp' : base + '.png'; }
 
+  /* ─── LENIS (только на projects.html, на index.html инициализируется в main.js) ─── */
+  if (typeof Lenis !== 'undefined' && !window.__lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.__lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+    function lenisRaf(time) { window.__lenis.raf(time); requestAnimationFrame(lenisRaf); }
+    requestAnimationFrame(lenisRaf);
+  }
+
   /* ─── СЕТКА ПРОЕКТОВ (только на projects.html) ─── */
   var grid = document.getElementById('projectsGrid');
   if (grid) {
@@ -282,10 +290,16 @@
   var currentGallery = [];
   var galIdx = 0;
 
-  function showPhoto(i) {
+  function showPhoto(i, dir) {
     if (!currentGallery.length) return;
+    var prev = galIdx;
     galIdx = (i + currentGallery.length) % currentGallery.length;
     pmodalImg.src = imgSrc(currentGallery[galIdx]);
+    if (dir) {
+      pmodalImg.classList.remove('anim-next', 'anim-prev');
+      void pmodalImg.offsetWidth; // reflow
+      pmodalImg.classList.add(dir === 1 ? 'anim-next' : 'anim-prev');
+    }
     var multi = currentGallery.length > 1;
     if (galCounter) {
       galCounter.textContent = (galIdx + 1) + ' / ' + currentGallery.length;
@@ -323,12 +337,14 @@
 
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    if (window.__lenis) window.__lenis.stop();
   }
   window.openProjectModal = openModal;
 
   function closeModal() {
     modal.classList.remove('is-open');
     document.body.style.overflow = '';
+    if (window.__lenis) window.__lenis.start();
     closePlan();
   }
 
@@ -370,8 +386,8 @@
     planOverlay.classList.remove('is-open');
   }
 
-  if (galPrev) galPrev.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx - 1); });
-  if (galNext) galNext.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx + 1); });
+  if (galPrev) galPrev.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx - 1, -1); });
+  if (galNext) galNext.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx + 1, 1); });
 
   /* Клик по слайду на главной */
   document.querySelectorAll('.slide-clickable').forEach(function (slide) {
@@ -391,8 +407,8 @@
       if (planOverlay.classList.contains('is-open')) { closePlan(); }
       else if (modal.classList.contains('is-open')) { closeModal(); }
     } else if (modal.classList.contains('is-open') && !planOverlay.classList.contains('is-open')) {
-      if (e.key === 'ArrowLeft') { showPhoto(galIdx - 1); }
-      else if (e.key === 'ArrowRight') { showPhoto(galIdx + 1); }
+      if (e.key === 'ArrowLeft') { showPhoto(galIdx - 1, -1); }
+      else if (e.key === 'ArrowRight') { showPhoto(galIdx + 1, 1); }
     }
   });
 

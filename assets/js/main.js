@@ -1,3 +1,10 @@
+  // ─── LENIS SMOOTH SCROLL ───
+  if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.__lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+    function lenisRaf(time) { window.__lenis.raf(time); requestAnimationFrame(lenisRaf); }
+    requestAnimationFrame(lenisRaf);
+  }
+
   // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbww9d11Dk7rQEtfPOGQOMlOiKz152ERq-W-p6AEqVdCR28xiwWR4iu8xj9ylTej5_ObyQ/exec';
 

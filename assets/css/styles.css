@@ -625,6 +625,7 @@
   }
   .service-item.visible { opacity: 1; transform: translateY(0); }
   .service-item:hover { background: var(--card-hover); }
+  /* amber-линия сверху при ховере */
   .service-item::before {
     content: '';
     position: absolute;
@@ -633,8 +634,25 @@
     background: var(--amber);
     opacity: 0;
     transition: opacity .3s;
+    z-index: 2;
   }
   .service-item:hover::before { opacity: 1; }
+  /* radial glow за иконкой — внутри overflow:hidden, не обрезается */
+  .service-item::after {
+    content: '';
+    position: absolute;
+    top: -15%;
+    right: -8%;
+    width: 55%;
+    height: 60%;
+    background: radial-gradient(ellipse at 65% 30%, rgba(245,176,56,.20) 0%, rgba(245,176,56,.07) 45%, transparent 75%);
+    z-index: 0;
+    pointer-events: none;
+    transition: background .45s ease;
+  }
+  .service-item:hover::after {
+    background: radial-gradient(ellipse at 65% 30%, rgba(245,176,56,.40) 0%, rgba(245,176,56,.15) 45%, transparent 75%);
+  }
   .srv-num {
     font-family: 'Montserrat', sans-serif;
     font-size: 48px;
@@ -649,18 +667,20 @@
   /* 3D-иконки услуг — верхний правый угол, ровно по сетке, мягкий уход в фон, зум на ховере */
   .srv-icon {
     position: absolute;
-    top: 32px;
-    right: 30px;
-    width: 92px;
-    height: 92px;
+    top: 12px;
+    right: 14px;
+    width: 155px;
+    height: 155px;
     object-fit: contain;
-    z-index: 0;
-    opacity: .9;
+    z-index: 1;
+    opacity: .93;
     pointer-events: none;
     -webkit-mask-image: linear-gradient(to bottom, #000 56%, transparent 100%);
             mask-image: linear-gradient(to bottom, #000 56%, transparent 100%);
     transition: transform .45s ease, opacity .4s ease;
   }
+  /* надзор — оставляем как был */
+  .service-item:nth-child(6) .srv-icon { width: 130px; height: 130px; top: 18px; right: 18px; }
   .service-item:hover .srv-icon { transform: scale(1.08); opacity: 1; }
   .service-item > .srv-num,
   .service-item > .srv-title,
@@ -1697,6 +1717,10 @@
     transition: transform .6s cubic-bezier(.22,1,.36,1);
   }
   .pmodal.is-open .pmodal__img { transform: scale(1); }
+  @keyframes slideInRight { from { opacity: 0; transform: translateX(48px) scale(.98); } to { opacity: 1; transform: translateX(0) scale(1); } }
+  @keyframes slideInLeft  { from { opacity: 0; transform: translateX(-48px) scale(.98); } to { opacity: 1; transform: translateX(0) scale(1); } }
+  .pmodal__img.anim-next { animation: slideInRight .38s cubic-bezier(.22,1,.36,1) both; }
+  .pmodal__img.anim-prev { animation: slideInLeft  .38s cubic-bezier(.22,1,.36,1) both; }
   .pmodal__img-shine {
     position: absolute; inset: 0;
     background: linear-gradient(135deg, rgba(212,175,55,.07) 0%, transparent 60%);
@@ -1726,6 +1750,7 @@
     min-height: 0; overflow: hidden;
   }
 
+  .pmodal__badge-row { margin-bottom: 14px; }
   .pmodal__badge {
     display: inline-flex; align-items: center;
     font-family: 'Space Mono', monospace;
@@ -1733,7 +1758,6 @@
     color: var(--amber);
     border: 1px solid rgba(212,175,55,.3);
     padding: 4px 9px; border-radius: 2px;
-    margin-bottom: 14px; align-self: flex-start;
     opacity: 0; transform: translateX(-10px);
     transition: opacity .4s .15s ease, transform .4s .15s ease;
   }
