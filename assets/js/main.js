@@ -1,3 +1,5 @@
+(function () {
+  'use strict';
   // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
   const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbww9d11Dk7rQEtfPOGQOMlOiKz152ERq-W-p6AEqVdCR28xiwWR4iu8xj9ylTej5_ObyQ/exec';
 
@@ -316,7 +318,7 @@
       }
 
       // Rate limit: не чаще раза в 30 секунд с одного браузера
-      const lastSent = parseInt(sessionStorage.getItem('_ls') || '0');
+      const lastSent = parseInt((function(){ try { return sessionStorage.getItem('_ls'); } catch(e) { return null; } })() || '0');
       if (Date.now() - lastSent < 30000) {
         showError('Заявка уже отправлена. Подождите 30 секунд перед повторной отправкой.');
         return;
@@ -351,13 +353,9 @@
 
       // Turnstile: берём токен если есть, но не блокируем отправку
       const tsToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
-      if (!tsToken) {
-        console.warn('[Form] Turnstile-токен отсутствует, отправляем без него');
-      }
 
       const fd = new FormData(contactForm);
       const raw = Object.fromEntries(fd.entries());
-      // Обрезаем длинные поля и убираем лишние пробелы
       const payload = {
         name:    (raw.name    || '').trim().slice(0, 100),
         phone:   (raw.phone   || '').trim().slice(0, 20),
@@ -368,15 +366,16 @@
         ts:      tsToken,
       };
 
-      console.log('[Form] Отправляем в таблицу:', { name: payload.name, phone: payload.phone, city: payload.city });
       setLoading(true);
       try {
-        await fetch(SHEETS_URL + '?' + new URLSearchParams(payload).toString(), {
+        await fetch(SHEETS_URL, {
+          method: 'POST',
           mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(payload).toString(),
         });
-        console.log('[Form] fetch завершён (no-cors, ответ не виден)');
 
-        sessionStorage.setItem('_ls', Date.now().toString());
+        try { sessionStorage.setItem('_ls', Date.now().toString()); } catch(e) {}
         if (window.turnstile) window.turnstile.reset();
         contactForm.style.transition = 'opacity .3s';
         contactForm.style.opacity = '0';
@@ -385,7 +384,6 @@
           successEl && successEl.classList.add('show');
         }, 300);
       } catch (err) {
-        console.error('Form submit failed:', err);
         showError('Не удалось отправить заявку. Проверьте интернет и попробуйте ещё раз, или позвоните напрямую: +7 (950) 778-77-77.');
       } finally {
         setLoading(false);
@@ -401,4 +399,4 @@
   // Динамический год в футере
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
+})();

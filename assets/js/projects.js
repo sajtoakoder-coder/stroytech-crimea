@@ -224,7 +224,7 @@
       card.type = 'button';
       card.className = 'proj-card';
       card.setAttribute('data-project', i);
-      card.setAttribute('aria-label', p.title);
+      card.setAttribute('aria-label', p.badge + ': ' + p.title);
 
       var media = document.createElement('div');
       media.className = 'proj-card__media';
