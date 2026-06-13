@@ -213,8 +213,7 @@
     }
   ];
 
-  var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('webp') > -1;
-  function imgSrc(base) { return supportsWebP ? base + '.webp' : base + '.png'; }
+  function imgSrc(base) { return base + '.webp'; }
 
   /* ─── СЕТКА ПРОЕКТОВ (только на projects.html) ─── */
   var grid = document.getElementById('projectsGrid');
