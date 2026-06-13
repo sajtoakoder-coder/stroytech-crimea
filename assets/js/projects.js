@@ -269,7 +269,7 @@
   if (!modal) return; // нет модалки на странице — дальше нечего делать
 
   var backdrop = modal.querySelector('.pmodal__backdrop');
-  var pmodalImg = document.getElementById('pmodalImg');
+  var pmodalTrack = document.getElementById('pmodalTrack');
   var pmodalBadge = document.getElementById('pmodalBadge');
   var pmodalStatus = document.getElementById('pmodalStatus');
   var pmodalTitle = document.getElementById('pmodalTitle');
@@ -290,16 +290,27 @@
   var currentGallery = [];
   var galIdx = 0;
 
-  function showPhoto(i, dir) {
+  /* строим трек из img-элементов, как в хиро */
+  function buildTrack(gallery, altText) {
+    pmodalTrack.innerHTML = '';
+    pmodalTrack.style.transition = 'none';
+    pmodalTrack.style.transform = 'translateX(0)';
+    gallery.forEach(function (base) {
+      var img = document.createElement('img');
+      img.className = 'pmodal__img';
+      img.src = imgSrc(base);
+      img.alt = altText || '';
+      img.loading = 'lazy';
+      pmodalTrack.appendChild(img);
+    });
+  }
+
+  function showPhoto(i) {
     if (!currentGallery.length) return;
-    var prev = galIdx;
     galIdx = (i + currentGallery.length) % currentGallery.length;
-    pmodalImg.src = imgSrc(currentGallery[galIdx]);
-    if (dir) {
-      pmodalImg.classList.remove('anim-next', 'anim-prev');
-      void pmodalImg.offsetWidth; // reflow
-      pmodalImg.classList.add(dir === 1 ? 'anim-next' : 'anim-prev');
-    }
+    /* включаем transition только когда уже есть слайды (не при первом открытии) */
+    pmodalTrack.style.transition = 'transform .7s cubic-bezier(.4,0,.2,1)';
+    pmodalTrack.style.transform = 'translateX(-' + (galIdx * 100) + '%)';
     var multi = currentGallery.length > 1;
     if (galCounter) {
       galCounter.textContent = (galIdx + 1) + ' / ' + currentGallery.length;
@@ -313,8 +324,8 @@
     var p = PROJECTS[idx];
     if (!p) return;
     currentGallery = (p.gallery && p.gallery.length) ? p.gallery : [p.cover];
+    buildTrack(currentGallery, p.title);
     showPhoto(0);
-    pmodalImg.alt = p.title;
     pmodalBadge.textContent = p.badge;
     if (pmodalStatus) {
       pmodalStatus.textContent = p.tag || '';
@@ -386,8 +397,8 @@
     planOverlay.classList.remove('is-open');
   }
 
-  if (galPrev) galPrev.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx - 1, -1); });
-  if (galNext) galNext.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx + 1, 1); });
+  if (galPrev) galPrev.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx - 1); });
+  if (galNext) galNext.addEventListener('click', function (e) { e.stopPropagation(); showPhoto(galIdx + 1); });
 
   /* Клик по слайду на главной */
   document.querySelectorAll('.slide-clickable').forEach(function (slide) {
@@ -407,8 +418,8 @@
       if (planOverlay.classList.contains('is-open')) { closePlan(); }
       else if (modal.classList.contains('is-open')) { closeModal(); }
     } else if (modal.classList.contains('is-open') && !planOverlay.classList.contains('is-open')) {
-      if (e.key === 'ArrowLeft') { showPhoto(galIdx - 1, -1); }
-      else if (e.key === 'ArrowRight') { showPhoto(galIdx + 1, 1); }
+      if (e.key === 'ArrowLeft') { showPhoto(galIdx - 1); }
+      else if (e.key === 'ArrowRight') { showPhoto(galIdx + 1); }
     }
   });
 
