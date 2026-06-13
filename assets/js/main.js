@@ -368,11 +368,8 @@
 
       setLoading(true);
       try {
-        await fetch(SHEETS_URL, {
-          method: 'POST',
+        await fetch(SHEETS_URL + '?' + new URLSearchParams(payload).toString(), {
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(payload).toString(),
         });
 
         try { sessionStorage.setItem('_ls', Date.now().toString()); } catch(e) {}
