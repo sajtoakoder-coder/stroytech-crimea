@@ -721,15 +721,33 @@
   }
   .catalog-item:hover::after { transform: scaleX(1); }
   /* ─── ФОТО ТЕХНИКИ в плашках: растворяется в фон под текстом через маску ─── */
+  /* Glow-пятно в правом верхнем углу карточки — внутри overflow:hidden, не обрезается */
+  .catalog-item::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(ellipse at 70% 30%, rgba(245,176,56,.18) 0%, rgba(245,176,56,.07) 45%, transparent 75%);
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity .45s ease;
+    opacity: 1;
+  }
+  .catalog-item:hover::before {
+    opacity: 1;
+    background: radial-gradient(ellipse at 70% 30%, rgba(245,176,56,.35) 0%, rgba(245,176,56,.14) 45%, transparent 75%);
+  }
   .cat-photo {
     position: absolute;
-    right: -4%;
-    top: -6%;
-    width: 58%;
-    max-width: 260px;
+    right: -5%;
+    top: -8%;
+    width: 68%;
+    max-width: 308px;
     height: auto;
     z-index: 0;
-    opacity: .9;
+    opacity: .92;
     pointer-events: none;
     -webkit-mask-image: linear-gradient(to bottom left, #000 30%, transparent 72%);
             mask-image: linear-gradient(to bottom left, #000 30%, transparent 72%);
@@ -742,7 +760,7 @@
   .catalog-item:nth-child(5) .cat-photo { top: 9%; }
   .catalog-item:hover .cat-photo { opacity: 1; transform: scale(1.06); }
   @media(max-width: 600px) {
-    .cat-photo { width: 46%; max-width: 200px; opacity: .8; top: -2%; right: -2%; }
+    .cat-photo { width: 54%; max-width: 230px; opacity: .82; top: -2%; right: -2%; }
   }
   .catalog-item > .cat-icon,
   .catalog-item > .cat-title,
