@@ -231,7 +231,9 @@
       var im = document.createElement('img');
       im.src = imgSrc(p.cover);
       im.alt = p.title;
-      im.loading = 'lazy';
+      im.loading = i < 4 ? 'eager' : 'lazy';
+      im.decoding = 'async';
+      if (i === 0) im.setAttribute('fetchpriority', 'high');
       media.appendChild(im);
       if (p.tag) {
         var tg = document.createElement('span');
