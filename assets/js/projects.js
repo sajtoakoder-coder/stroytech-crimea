@@ -20,8 +20,8 @@
       cover: 'assets/img/Image1-000',
       gallery: ['assets/img/Image1-000'],
       plans: [
-        { label: '1 этаж', src: 'assets/img/plan1-floor1-project1.png' },
-        { label: '2 этаж', src: 'assets/img/plan1-floor2-project1.png' }
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project1.webp' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project1.webp' }
       ],
       specs: [
         ['Площадь', '120 м²'],
@@ -39,8 +39,8 @@
       cover: 'assets/img/Image20',
       gallery: ['assets/img/Image20'],
       plans: [
-        { label: '1 этаж', src: 'assets/img/plan1-floor1-project2.png' },
-        { label: '2 этаж', src: 'assets/img/plan1-floor2-project2.png' }
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project2.webp' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project2.webp' }
       ],
       specs: [
         ['Площадь', '145 м²'],
@@ -58,7 +58,7 @@
       cover: 'assets/img/Image32-000',
       gallery: ['assets/img/Image32-000'],
       plans: [
-        { label: 'План', src: 'assets/img/plan1-project3.png' }
+        { label: 'План', src: 'assets/img/plan1-project3.webp' }
       ],
       specs: [
         ['Площадь', '210 м²'],
@@ -76,8 +76,8 @@
       cover: 'assets/img/Image15',
       gallery: ['assets/img/Image15'],
       plans: [
-        { label: '1 этаж', src: 'assets/img/plan1-floor1-project4.png' },
-        { label: '2 этаж', src: 'assets/img/plan1-floor2-project4.png' }
+        { label: '1 этаж', src: 'assets/img/plan1-floor1-project4.webp' },
+        { label: '2 этаж', src: 'assets/img/plan1-floor2-project4.webp' }
       ],
       specs: [
         ['Площадь', '160 м²'],
@@ -123,8 +123,8 @@
         'assets/img/project6/project6-4st'
       ],
       plans: [
-        { label: '1 этаж', src: 'assets/img/project6/2dplan1.png' },
-        { label: '2 этаж', src: 'assets/img/project6/2dplan2.png' }
+        { label: '1 этаж', src: 'assets/img/project6/2dplan1.webp' },
+        { label: '2 этаж', src: 'assets/img/project6/2dplan2.webp' }
       ],
       specs: [
         ['Этажность', '2 этажа'],
@@ -143,7 +143,7 @@
         'assets/img/project7/project7-1st'
       ],
       plans: [
-        { label: '1 этаж', src: 'assets/img/project7/2dplan1.png' }
+        { label: '1 этаж', src: 'assets/img/project7/2dplan1.webp' }
       ],
       specs: [
         ['Этажность', '2 этажа'],
@@ -162,7 +162,7 @@
         'assets/img/project8/project8-1st'
       ],
       plans: [
-        { label: 'План', src: 'assets/img/project8/2dplan1.png' }
+        { label: 'План', src: 'assets/img/project8/2dplan1.webp' }
       ],
       specs: [
         ['Этажность', '2 этажа'],
@@ -181,8 +181,7 @@
         'assets/img/project9/project9-1st'
       ],
       plans: [
-        { label: '1 этаж', src: 'assets/img/project9/2dplan1.png' },
-        { label: '2 этаж', src: 'assets/img/project9/2dplan2.png' }
+        { label: '1 этаж', src: 'assets/img/project9/2dplan1.webp' }
       ],
       specs: [
         ['Этажность', '2 этажа'],
@@ -200,7 +199,10 @@
       gallery: [
         'assets/img/project10/project10-1st'
       ],
-      plans: [],
+      plans: [
+        { label: '1 этаж', src: 'assets/img/project10/2dplan1.webp' },
+        { label: '2 этаж', src: 'assets/img/project10/2dplan2.webp' }
+      ],
       specs: [
         ['Этажность', '—'],
         ['Площадь', '— м²'],
