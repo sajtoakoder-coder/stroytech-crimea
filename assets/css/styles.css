@@ -10,7 +10,7 @@
     --amber-d: #b57a10;
     --amber-l: #f5bc50;
     --text:    #f4f2ee;
-    --muted:   #8a8880;
+    --muted:   #b0ada8;
     --light:   #c8c5be;
     --nav-bg:  rgba(14,14,13,.94);
     --card-bg: #161614;
@@ -49,6 +49,14 @@
   }
 
   /* noise texture removed — feTurbulence on position:fixed causes repaint every frame */
+
+  .srv-desc, .cat-desc, .rc-desc, .wf-desc, .step-desc, .region-desc,
+  .fleet-intro p, .rental-grid p, .contact-left p, .footer-brand p,
+  .hero-right p, #hero p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
 
   h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
@@ -318,6 +326,9 @@
     max-width: 400px;
     margin: 32px 0 52px;
     font-weight: 300;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
   .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
