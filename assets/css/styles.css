@@ -785,11 +785,10 @@
             mask-image: linear-gradient(to bottom left, #000 30%, transparent 72%);
     transition: opacity .45s ease, transform .5s ease;
   }
-  /* экскаватор, самосвал, погрузчик, каток — опускаем на один уровень */
   .catalog-item:nth-child(1) .cat-photo,
+  .catalog-item:nth-child(2) .cat-photo,
   .catalog-item:nth-child(3) .cat-photo,
-  .catalog-item:nth-child(4) .cat-photo,
-  .catalog-item:nth-child(5) .cat-photo { top: 9%; }
+  .catalog-item:nth-child(4) .cat-photo { top: 9%; }
   .catalog-item:hover .cat-photo { opacity: 1; transform: scale(1.06); }
   @media(max-width: 600px) {
     .cat-photo { width: 54%; max-width: 230px; opacity: .82; top: -2%; right: -2%; }
