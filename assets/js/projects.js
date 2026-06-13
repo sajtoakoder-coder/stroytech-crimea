@@ -216,13 +216,6 @@
   var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('webp') > -1;
   function imgSrc(base) { return supportsWebP ? base + '.webp' : base + '.png'; }
 
-  /* ─── LENIS (только на projects.html, на index.html инициализируется в main.js) ─── */
-  if (typeof Lenis !== 'undefined' && !window.__lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    window.__lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
-    function lenisRaf(time) { window.__lenis.raf(time); requestAnimationFrame(lenisRaf); }
-    requestAnimationFrame(lenisRaf);
-  }
-
   /* ─── СЕТКА ПРОЕКТОВ (только на projects.html) ─── */
   var grid = document.getElementById('projectsGrid');
   if (grid) {
@@ -348,14 +341,12 @@
 
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    if (window.__lenis) window.__lenis.stop();
   }
   window.openProjectModal = openModal;
 
   function closeModal() {
     modal.classList.remove('is-open');
     document.body.style.overflow = '';
-    if (window.__lenis) window.__lenis.start();
     closePlan();
   }
 
