@@ -293,7 +293,6 @@
       img.className = 'pmodal__img';
       img.src = imgSrc(base);
       img.alt = altText || '';
-      img.loading = 'lazy';
       pmodalTrack.appendChild(img);
     });
   }

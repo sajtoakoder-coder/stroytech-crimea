@@ -1991,6 +1991,8 @@
     padding: 0;
     transition: border-color .25s, transform .25s, box-shadow .25s;
   }
+  .proj-card:focus { outline: none; }
+  .proj-card:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
   .proj-card:hover {
     border-color: var(--amber);
     transform: translateY(-4px);
