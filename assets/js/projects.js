@@ -290,11 +290,13 @@
     pmodalTrack.innerHTML = '';
     pmodalTrack.style.transition = 'none';
     pmodalTrack.style.transform = 'translateX(0)';
-    gallery.forEach(function (base) {
+    gallery.forEach(function (base, idx) {
       var img = document.createElement('img');
       img.className = 'pmodal__img';
       img.src = imgSrc(base);
       img.alt = altText || '';
+      img.decoding = 'async';
+      if (idx === 0) img.setAttribute('fetchpriority', 'high');
       pmodalTrack.appendChild(img);
     });
   }
