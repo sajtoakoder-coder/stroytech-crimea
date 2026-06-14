@@ -52,8 +52,11 @@
   themeToggle.setAttribute('aria-pressed', saved === 'light' ? 'true' : 'false');
 
   function applyLogoTheme(theme) {
+    const src = theme === 'light' ? 'assets/img/logoblack.webp' : 'assets/img/logo.webp';
     document.querySelectorAll('.logo-img').forEach(img => {
-      img.src = theme === 'light' ? 'assets/img/logoblack.webp' : 'assets/img/logo.webp';
+      img.src = src;
+      const source = img.closest('picture')?.querySelector('source');
+      if (source) source.srcset = src;
     });
   }
   applyLogoTheme(saved);
