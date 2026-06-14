@@ -679,11 +679,12 @@
   /* 3D-иконки услуг — верхний правый угол, ровно по сетке, мягкий уход в фон, зум на ховере */
   .srv-icon {
     position: absolute;
-    top: 16px;
-    right: 20px;
-    width: 200px;
-    height: 200px;
+    top: 12px;
+    right: 16px;
+    width: 185px;
+    height: 185px;
     object-fit: contain;
+    object-position: top right;
     z-index: 0;
     opacity: .93;
     pointer-events: none;
@@ -691,9 +692,6 @@
             mask-image: linear-gradient(to bottom left, #000 25%, transparent 65%);
     transition: transform .45s ease, opacity .4s ease;
   }
-  /* свайные работы и надзор — плотная иллюстрация, уменьшаем */
-  .service-item:nth-child(5) .srv-icon { width: 155px; height: 155px; }
-  .service-item:nth-child(6) .srv-icon { width: 150px; height: 150px; top: 20px; }
   .service-item:hover .srv-icon { transform: scale(1.08); opacity: 1; }
   .service-item > .srv-num,
   .service-item > .srv-title,
