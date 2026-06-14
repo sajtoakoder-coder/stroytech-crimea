@@ -50,7 +50,7 @@
 
   /* noise texture removed — feTurbulence on position:fixed causes repaint every frame */
 
-  .srv-desc, .cat-desc, .rc-desc, .wf-desc, .step-desc, .region-desc,
+  .cat-desc, .rc-desc, .wf-desc, .step-desc, .region-desc,
   .fleet-intro p, .rental-grid p, .contact-left p, .footer-brand p,
   .hero-right p, #hero p {
     text-align: justify;
@@ -635,6 +635,8 @@
     transition: opacity .5s, transform .5s, background .15s;
     contain: layout style;
   }
+  .service-item > .srv-title,
+  .service-item > .srv-desc { padding-right: 155px; }
   .service-item.visible { opacity: 1; transform: translateY(0); }
   .service-item:hover { background: var(--card-hover); }
   /* amber-линия сверху при ховере */
@@ -679,20 +681,18 @@
   /* 3D-иконки услуг — верхний правый угол, ровно по сетке, мягкий уход в фон, зум на ховере */
   .srv-icon {
     position: absolute;
-    top: 12px;
-    right: 14px;
-    width: 155px;
-    height: 155px;
+    top: 16px;
+    right: 20px;
+    width: 175px;
+    height: 175px;
     object-fit: contain;
     z-index: 1;
     opacity: .93;
     pointer-events: none;
-    -webkit-mask-image: linear-gradient(to bottom, #000 56%, transparent 100%);
-            mask-image: linear-gradient(to bottom, #000 56%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 60%, transparent 100%);
     transition: transform .45s ease, opacity .4s ease;
   }
-  /* надзор — оставляем как был */
-  .service-item:nth-child(6) .srv-icon { width: 130px; height: 130px; top: 18px; right: 18px; }
   .service-item:hover .srv-icon { transform: scale(1.08); opacity: 1; }
   .service-item > .srv-num,
   .service-item > .srv-title,
