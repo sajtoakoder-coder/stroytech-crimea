@@ -342,6 +342,7 @@
       pmodalSpecs.appendChild(li);
     });
     currentPlans = p.plans || [];
+    pmodalPlanBtn.style.display = currentPlans.length ? '' : 'none';
 
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
