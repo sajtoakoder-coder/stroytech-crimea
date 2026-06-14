@@ -50,7 +50,7 @@
 
   /* noise texture removed — feTurbulence on position:fixed causes repaint every frame */
 
-  .cat-desc, .rc-desc, .wf-desc, .step-desc, .region-desc,
+  .srv-desc, .cat-desc, .rc-desc, .wf-desc, .step-desc, .region-desc,
   .fleet-intro p, .rental-grid p, .contact-left p, .footer-brand p,
   .hero-right p, #hero p {
     text-align: justify;
@@ -635,8 +635,6 @@
     transition: opacity .5s, transform .5s, background .15s;
     contain: layout style;
   }
-  .service-item > .srv-title,
-  .service-item > .srv-desc { padding-right: 155px; }
   .service-item.visible { opacity: 1; transform: translateY(0); }
   .service-item:hover { background: var(--card-hover); }
   /* amber-линия сверху при ховере */
