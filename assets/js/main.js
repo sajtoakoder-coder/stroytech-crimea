@@ -53,7 +53,7 @@
 
   function applyLogoTheme(theme) {
     const src = theme === 'light' ? 'assets/img/logoblack.webp' : 'assets/img/logo.webp';
-    document.querySelectorAll('.logo-img').forEach(img => {
+    document.querySelectorAll('.logo-img, .hero-logo-img').forEach(img => {
       img.src = src;
       const source = img.closest('picture')?.querySelector('source');
       if (source) source.srcset = src;
