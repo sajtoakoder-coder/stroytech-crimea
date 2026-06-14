@@ -50,11 +50,20 @@
   const saved = (function(){try{return localStorage.getItem('theme');}catch(e){return null;}})() || 'dark';
   html.setAttribute('data-theme', saved);
   themeToggle.setAttribute('aria-pressed', saved === 'light' ? 'true' : 'false');
+
+  function applyLogoTheme(theme) {
+    document.querySelectorAll('.logo-img').forEach(img => {
+      img.src = theme === 'light' ? 'assets/img/logoblack.webp' : 'assets/img/logo.webp';
+    });
+  }
+  applyLogoTheme(saved);
+
   themeToggle.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     themeToggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
     try{localStorage.setItem('theme',next);}catch(e){}
+    applyLogoTheme(next);
   });
 
   // NAV
