@@ -122,10 +122,7 @@
         'assets/img/project6/project6-3st',
         'assets/img/project6/project6-4st'
       ],
-      plans: [
-        { label: '1 этаж', src: 'assets/img/project6/2dplan1.webp' },
-        { label: '2 этаж', src: 'assets/img/project6/2dplan2.webp' }
-      ],
+      plans: [],
       specs: [
         ['Тип объекта', 'Коммерческий'],
         ['Площадь здания', '~180 м²'],
