@@ -1,4 +1,18 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "stroitehr.ru" }],
+      "destination": "https://xn--e1afmkfd.xn--p1ai/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.stroitehr.ru" }],
+      "destination": "https://xn--e1afmkfd.xn--p1ai/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
