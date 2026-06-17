@@ -961,7 +961,7 @@
   }
   .cb-card {
     background: var(--surface);
-    padding: 44px 36px;
+    padding: 40px 28px;
     position: relative;
     overflow: hidden;
     transition: background .3s;
@@ -990,15 +990,15 @@
   }
   .cb-card:hover .cb-icon { color: var(--amber); }
   .cb-title {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 12px;
-    line-height: 1.4;
+    line-height: 1.45;
     letter-spacing: .01em;
   }
   .cb-desc {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--muted);
     line-height: 1.75;
   }
@@ -1033,7 +1033,7 @@
     font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: var(--light);
+    color: var(--text);
     line-height: 1.85;
     margin-bottom: 28px;
   }
