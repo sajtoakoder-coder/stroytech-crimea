@@ -3,19 +3,19 @@
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "stroytehr.ru" }],
-      "destination": "https://стройтехр.рф/$1",
+      "destination": "https://стройтехр.ру/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.stroytehr.ru" }],
-      "destination": "https://стройтехр.рф/$1",
+      "destination": "https://стройтехр.ру/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.стройтехр.рф" }],
-      "destination": "https://стройтехр.рф/$1",
+      "has": [{ "type": "host", "value": "www.стройтехр.ру" }],
+      "destination": "https://стройтехр.ру/$1",
       "permanent": true
     }
   ],
