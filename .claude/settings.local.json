@@ -85,7 +85,10 @@
       "Bash(cwebp image15.png -o Image15.webp -q 85)",
       "Bash(cwebp image15.jpg -o Image15.webp -q 85)",
       "Bash(cwebp project.png -o project10-1st.webp -q 85)",
-      "Bash(cwebp project.jpg -o project14.webp -q 85)"
+      "Bash(cwebp project.jpg -o project14.webp -q 85)",
+      "Bash(dig TXT _vercel.xn--e1afmkfd.xn--p1acf +short)",
+      "Bash(nslookup -type=TXT _vercel.xn--e1afmkfd.xn--p1acf)",
+      "Bash(nslookup -type=TXT _vercel.xn--e1afmkfd.xn--p1acf 8.8.8.8)"
     ]
   }
 }
