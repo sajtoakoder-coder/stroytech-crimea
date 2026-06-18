@@ -84,7 +84,8 @@
       "Bash(cwebp photodom.jpg -o project12.webp -q 85)",
       "Bash(cwebp image15.png -o Image15.webp -q 85)",
       "Bash(cwebp image15.jpg -o Image15.webp -q 85)",
-      "Bash(cwebp project.png -o project10-1st.webp -q 85)"
+      "Bash(cwebp project.png -o project10-1st.webp -q 85)",
+      "Bash(cwebp project.jpg -o project14.webp -q 85)"
     ]
   }
 }
