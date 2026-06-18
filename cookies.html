@@ -22,48 +22,67 @@
   .page-privacy table th {
     text-align: left;
     padding: 10px 14px;
-    background: var(--surface, rgba(255,255,255,.04));
-    color: var(--amber, #c8973a);
+    background: var(--mid);
+    color: var(--amber);
     font-weight: 600;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: .04em;
-    border-bottom: 1px solid var(--border, rgba(255,255,255,.1));
+    border-bottom: 1px solid var(--border);
   }
   .page-privacy table td {
     padding: 10px 14px;
-    border-bottom: 1px solid var(--border, rgba(255,255,255,.06));
+    border-bottom: 1px solid var(--border);
     vertical-align: top;
     line-height: 1.5;
-    color: var(--text-muted, rgba(255,255,255,.7));
+    color: var(--muted);
   }
   .page-privacy table td code {
-    background: var(--surface, rgba(255,255,255,.07));
+    background: var(--mid);
     padding: 2px 6px;
     border-radius: 3px;
     font-size: 12px;
-    color: var(--text, #f5f2ec);
+    color: var(--text);
+    font-family: 'Space Mono', monospace;
   }
   .page-privacy table tr:last-child td { border-bottom: none; }
-  .page-privacy table a { color: var(--amber, #c8973a); }
+  .page-privacy table a { color: var(--amber); }
+
+  .page-privacy .reset-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--amber);
+    color: var(--bg);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+  .page-privacy .reset-btn:hover { opacity: .85; }
+
   @media (max-width: 600px) {
     .page-privacy table, .page-privacy thead, .page-privacy tbody,
     .page-privacy th, .page-privacy td, .page-privacy tr { display: block; }
     .page-privacy thead { display: none; }
     .page-privacy td {
-      padding: 6px 0;
+      padding: 5px 0;
       border-bottom: none;
+      color: var(--text);
     }
     .page-privacy td::before {
       content: attr(data-label) ': ';
       font-weight: 600;
-      color: var(--text, #f5f2ec);
+      color: var(--amber);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: .04em;
+      display: block;
     }
     .page-privacy tr {
-      border-bottom: 1px solid var(--border, rgba(255,255,255,.08));
+      border-bottom: 1px solid var(--border);
       padding: 10px 0;
       margin-bottom: 4px;
     }
@@ -122,7 +141,7 @@
 
     <h2>4. Как управлять файлами cookie</h2>
     <p>Вы можете изменить свой выбор в отношении cookie в любой момент, нажав кнопку ниже. Кроме того, вы можете настроить или заблокировать cookie в настройках вашего браузера, однако это может нарушить работу некоторых функций сайта (например, формы заявки).</p>
-    <p><button type="button" onclick="try{localStorage.removeItem('cookie_consent');}catch(e){}window.location.reload();" style="padding:10px 20px;background:var(--amber,#c8973a);color:#000;border:none;border-radius:4px;font-weight:600;cursor:pointer;">Сбросить выбор cookie</button></p>
+    <p><button type="button" class="reset-btn" onclick="try{localStorage.removeItem('cookie_consent');}catch(e){}window.location.reload();">Сбросить выбор cookie</button></p>
 
     <h2>5. Контакты</h2>
     <p>По вопросам, связанным с использованием cookie и обработкой персональных данных, обращайтесь:<br>
