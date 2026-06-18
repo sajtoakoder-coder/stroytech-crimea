@@ -12,6 +12,63 @@
 <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .page-privacy table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 16px 0 24px;
+  }
+  .page-privacy table th {
+    text-align: left;
+    padding: 10px 14px;
+    background: var(--surface, rgba(255,255,255,.04));
+    color: var(--amber, #c8973a);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    border-bottom: 1px solid var(--border, rgba(255,255,255,.1));
+  }
+  .page-privacy table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border, rgba(255,255,255,.06));
+    vertical-align: top;
+    line-height: 1.5;
+    color: var(--text-muted, rgba(255,255,255,.7));
+  }
+  .page-privacy table td code {
+    background: var(--surface, rgba(255,255,255,.07));
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: var(--text, #f5f2ec);
+  }
+  .page-privacy table tr:last-child td { border-bottom: none; }
+  .page-privacy table a { color: var(--amber, #c8973a); }
+  @media (max-width: 600px) {
+    .page-privacy table, .page-privacy thead, .page-privacy tbody,
+    .page-privacy th, .page-privacy td, .page-privacy tr { display: block; }
+    .page-privacy thead { display: none; }
+    .page-privacy td {
+      padding: 6px 0;
+      border-bottom: none;
+    }
+    .page-privacy td::before {
+      content: attr(data-label) ': ';
+      font-weight: 600;
+      color: var(--text, #f5f2ec);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .page-privacy tr {
+      border-bottom: 1px solid var(--border, rgba(255,255,255,.08));
+      padding: 10px 0;
+      margin-bottom: 4px;
+    }
+  }
+</style>
 </head>
 <body class="page-privacy">
 <header>
