@@ -502,10 +502,10 @@
             <div class="form-group"><label for="fieldName">Ваше имя</label><input type="text" id="fieldName" name="name" placeholder="Иван Петров" autocomplete="name" required></div>
             <div class="form-group"><label for="fieldPhone">Телефон</label><input type="tel" id="fieldPhone" name="phone" inputmode="tel" pattern="^\+?[0-9\s()\-]{10,18}$" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></div>
           </div>
-          <div class="form-group"><label>Что нужно сделать</label>
+          <div class="form-group"><label id="labelService">Что нужно сделать</label>
             <input type="hidden" id="fieldService" name="service" value="">
             <div class="custom-select" data-cs data-cs-target="fieldService">
-              <button type="button" class="cs-trigger" data-cs-trigger aria-haspopup="listbox" aria-expanded="false">
+              <button type="button" class="cs-trigger" data-cs-trigger aria-haspopup="listbox" aria-expanded="false" aria-labelledby="labelService">
                 <span>Выберите услугу</span>
                 <svg class="cs-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg>
               </button>
@@ -520,10 +520,10 @@
             </div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Бюджет</label>
+            <div class="form-group"><label id="labelBudget">Бюджет</label>
               <input type="hidden" id="fieldBudget" name="budget" value="">
               <div class="custom-select" data-cs data-cs-target="fieldBudget">
-                <button type="button" class="cs-trigger" data-cs-trigger aria-haspopup="listbox" aria-expanded="false">
+                <button type="button" class="cs-trigger" data-cs-trigger aria-haspopup="listbox" aria-expanded="false" aria-labelledby="labelBudget">
                   <span>Ориентировочно</span>
                   <svg class="cs-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l5 5 5-5"/></svg>
                 </button>
