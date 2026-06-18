@@ -2,13 +2,13 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "stroitehr.ru" }],
+      "has": [{ "type": "host", "value": "stroytehr.ru" }],
       "destination": "https://xn--e1afmkfd.xn--p1ai/$1",
       "permanent": true
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.stroitehr.ru" }],
+      "has": [{ "type": "host", "value": "www.stroytehr.ru" }],
       "destination": "https://xn--e1afmkfd.xn--p1ai/$1",
       "permanent": true
     }
