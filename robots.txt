@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://stroytehr.ru/sitemap.xml
+Sitemap: https://стройтехр.рф/sitemap.xml
