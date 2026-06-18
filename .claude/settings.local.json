@@ -88,7 +88,11 @@
       "Bash(cwebp project.jpg -o project14.webp -q 85)",
       "Bash(dig TXT _vercel.xn--e1afmkfd.xn--p1acf +short)",
       "Bash(nslookup -type=TXT _vercel.xn--e1afmkfd.xn--p1acf)",
-      "Bash(nslookup -type=TXT _vercel.xn--e1afmkfd.xn--p1acf 8.8.8.8)"
+      "Bash(nslookup -type=TXT _vercel.xn--e1afmkfd.xn--p1acf 8.8.8.8)",
+      "Bash(sort -k5 -hr)",
+      "Bash(magick Image15.webp -quality 75 -define webp:method=6 Image15.webp)",
+      "Bash(awk '{print $1/1024 \"KB\"}')",
+      "Bash(magick systems.webp -quality 72 -define webp:method=6 systems.webp)"
     ]
   }
 }
