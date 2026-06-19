@@ -35,21 +35,23 @@
     window.scrollTo(0, _scrollY);
   }
 
-  burger.addEventListener('click', () =>
-    navModal.classList.contains('open') ? closeMenu() : openMenu()
-  );
-  modalClose.addEventListener('click', closeMenu);
-  navModal.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && navModal.classList.contains('open')) closeMenu();
-  });
+  if (burger) {
+    burger.addEventListener('click', () =>
+      navModal.classList.contains('open') ? closeMenu() : openMenu()
+    );
+    modalClose.addEventListener('click', closeMenu);
+    navModal.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navModal.classList.contains('open')) closeMenu();
+    });
+  }
 
   // ─── THEME ───
   const html = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
   const saved = (function(){try{return localStorage.getItem('theme');}catch(e){return null;}})() || 'dark';
   html.setAttribute('data-theme', saved);
-  themeToggle.setAttribute('aria-pressed', saved === 'light' ? 'true' : 'false');
+  if (themeToggle) themeToggle.setAttribute('aria-pressed', saved === 'light' ? 'true' : 'false');
 
   function applyLogoTheme(theme) {
     const src = theme === 'light' ? 'assets/img/logoblack.webp' : 'assets/img/logo.webp';
@@ -61,7 +63,7 @@
   }
   applyLogoTheme(saved);
 
-  themeToggle.addEventListener('click', () => {
+  if (themeToggle) themeToggle.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     themeToggle.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
@@ -71,7 +73,7 @@
 
   // NAV
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
+  if (navbar) window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
