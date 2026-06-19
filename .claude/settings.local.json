@@ -98,7 +98,8 @@
       "Bash(awk 'NR>=49 && NR<=55' /Users/kirillkovalev/Documents/Tex_Stroy/assets/css/styles.css)",
       "Bash(python3 -c ' *)",
       "Bash(awk 'NR>=1 && NR<=672 && /@media/' /Users/kirillkovalev/Documents/Tex_Stroy/assets/css/styles.css)",
-      "Bash(awk 'NR>=600 && NR<=700' /Users/kirillkovalev/Documents/Tex_Stroy/assets/css/styles.css)"
+      "Bash(awk 'NR>=600 && NR<=700' /Users/kirillkovalev/Documents/Tex_Stroy/assets/css/styles.css)",
+      "Bash(cwebp -q 80 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/upravlenie.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/upravlenie.webp)"
     ]
   }
 }
