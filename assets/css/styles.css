@@ -687,6 +687,8 @@
     contain: layout style;
   }
   .service-item.visible { opacity: 1; transform: translateY(0); }
+  .service-item--wide { grid-column: 1 / -1; }
+  .service-item--wide .srv-wide-body { position: relative; z-index: 1; max-width: 720px; }
   .service-item:hover { background: var(--card-hover); }
   /* amber-линия сверху при ховере */
   .service-item::before {
