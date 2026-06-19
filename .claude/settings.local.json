@@ -94,7 +94,9 @@
       "Bash(awk '{print $1/1024 \"KB\"}')",
       "Bash(magick systems.webp -quality 72 -define webp:method=6 systems.webp)",
       "Bash(magick identify *)",
-      "Bash(awk '{print $1, $3}')"
+      "Bash(awk '{print $1, $3}')",
+      "Bash(awk 'NR>=49 && NR<=55' /Users/kirillkovalev/Documents/Tex_Stroy/assets/css/styles.css)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
