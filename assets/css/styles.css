@@ -689,8 +689,8 @@
   .service-item.visible { opacity: 1; transform: translateY(0); }
   .services-grid > .service-item--wide { grid-column: 1 / -1; }
   .service-item--wide .srv-wide-body { position: relative; z-index: 1; max-width: 720px; }
-  .service-item--wide::after { width: 35%; height: 50%; background: radial-gradient(ellipse at 65% 30%, rgba(245,176,56,.12) 0%, rgba(245,176,56,.04) 45%, transparent 75%); }
-  .service-item--wide:hover::after { background: radial-gradient(ellipse at 65% 30%, rgba(245,176,56,.25) 0%, rgba(245,176,56,.08) 45%, transparent 75%); }
+  .service-item--wide::after { width: 25%; height: 40%; opacity: 0 !important; background: none !important; }
+  .service-item--wide:hover::after { opacity: 0 !important; background: none !important; }
   .service-item:hover { background: var(--card-hover); }
   /* amber-линия сверху при ховере */
   .service-item::before {
