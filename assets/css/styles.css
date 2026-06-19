@@ -2194,6 +2194,48 @@
 
   @media(max-width: 600px) { .hide-mobile { display: none; } }
 
+/* ── FLEET TEASER ───────────────────────────────────────────── */
+  .fleet-teaser {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .fleet-teaser__text p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-top: 20px; }
+  .fleet-teaser__tags {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .fleet-teaser__tag {
+    background: var(--card-bg);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: background .15s;
+    position: relative;
+  }
+  .fleet-teaser__tag::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--amber);
+    opacity: 0; transition: opacity .3s;
+  }
+  .fleet-teaser__tag:hover { background: var(--card-hover); }
+  .fleet-teaser__tag:hover::before { opacity: 1; }
+  .fleet-teaser__tag svg { width: 32px; height: 32px; color: var(--amber); opacity: .85; }
+  .fleet-teaser__tag span { font-size: 13px; font-weight: 600; color: var(--text); }
+  @media(max-width: 900px) {
+    .fleet-teaser { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+/* ── TECHNIKA PAGE ───────────────────────────────────────────── */
+  .technika-catalog { margin-bottom: 72px; }
+  .technika-rental { margin-top: 16px; }
+
 /* ── OBJ-CARDS (projects.html) ─────────────────────────────── */
   .obj-cards {
     display: grid;
