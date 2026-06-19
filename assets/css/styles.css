@@ -849,7 +849,7 @@
   .catalog-item > .cat-title,
   .catalog-item > .cat-desc,
   .catalog-item > .cat-examples { position: relative; z-index: 1; }
-  .cat-icon { width: 40px; height: 40px; margin-bottom: 20px; color: var(--amber); opacity: .8; }
+  .cat-icon { width: 40px; height: 40px; max-width: 40px; max-height: 40px; margin-bottom: 20px; color: var(--amber); opacity: .8; }
   .cat-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 17px;
