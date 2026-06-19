@@ -105,7 +105,8 @@
       "Bash(git fetch *)",
       "Bash(cwebp -q 80 01.jpg -o 01.webp)",
       "Bash(cwebp -q 80 project166.jpg -o project166.webp)",
-      "Bash(cwebp -q 80 project167.jpg -o project167.webp)"
+      "Bash(cwebp -q 80 project167.jpg -o project167.webp)",
+      "Bash(cwebp -q 80 project21.png -o project21.webp)"
     ]
   }
 }
