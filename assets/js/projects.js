@@ -99,7 +99,9 @@
         'assets/img/project5/01',
         'assets/img/project5/02',
         'assets/img/project5/03',
-        'assets/img/project5/04'
+        'assets/img/project5/04',
+        'assets/img/project5/05',
+        'assets/img/project5/06'
       ],
       plans: [],
       specs: [
