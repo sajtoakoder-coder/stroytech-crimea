@@ -101,7 +101,11 @@
         'assets/img/project5/03',
         'assets/img/project5/04',
         'assets/img/project5/05',
-        'assets/img/project5/06'
+        'assets/img/project5/06',
+        'assets/img/project5/07',
+        'assets/img/project5/08',
+        'assets/img/project5/09',
+        'assets/img/project5/10'
       ],
       plans: [],
       specs: [
@@ -117,8 +121,9 @@
       title: 'АЗС Red Petrol',
       short: 'Коммерческий объект — автозаправочная станция с магазином и навесом.',
       desc: 'Строительство автозаправочной станции под брендом Red Petrol: монтаж металлоконструкций навеса, возведение здания магазина с фасадом из алюминиевых композитных панелей, устройство топливных островков и благоустройство территории. Объект сдан под ключ.',
-      cover: 'assets/img/project6/project6-1st',
+      cover: 'assets/img/project6/01',
       gallery: [
+        'assets/img/project6/01',
         'assets/img/project6/project6-1st',
         'assets/img/project6/project6-2st',
         'assets/img/project6/project6-3st',
@@ -288,7 +293,9 @@
         'assets/img/project16/project162',
         'assets/img/project16/project163',
         'assets/img/project16/project164',
-        'assets/img/project16/project165'
+        'assets/img/project16/project165',
+        'assets/img/project16/project166',
+        'assets/img/project16/project167'
       ],
       plans: [],
       specs: [
