@@ -2194,6 +2194,45 @@
 
   @media(max-width: 600px) { .hide-mobile { display: none; } }
 
+/* ── OBJ-CARDS (projects.html) ─────────────────────────────── */
+  .obj-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 40px 0 1px;
+  }
+  .obj-card {
+    background: var(--card-bg);
+    padding: 36px 28px;
+    position: relative;
+    transition: background .15s;
+  }
+  .obj-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: var(--amber);
+    opacity: 0; transition: opacity .3s;
+  }
+  .obj-card:hover { background: var(--card-hover); }
+  .obj-card:hover::before { opacity: 1; }
+  .obj-perks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 56px;
+  }
+  @media(max-width: 900px) {
+    .obj-cards { grid-template-columns: 1fr; }
+    .obj-perks { grid-template-columns: 1fr 1fr; }
+  }
+  @media(max-width: 600px) {
+    .obj-perks { grid-template-columns: 1fr; }
+  }
+
 /* ── PROMO ─────────────────────────────────────────────────── */
   .promo-grid {
     display: grid;
