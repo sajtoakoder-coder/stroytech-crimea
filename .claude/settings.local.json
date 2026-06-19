@@ -92,7 +92,9 @@
       "Bash(sort -k5 -hr)",
       "Bash(magick Image15.webp -quality 75 -define webp:method=6 Image15.webp)",
       "Bash(awk '{print $1/1024 \"KB\"}')",
-      "Bash(magick systems.webp -quality 72 -define webp:method=6 systems.webp)"
+      "Bash(magick systems.webp -quality 72 -define webp:method=6 systems.webp)",
+      "Bash(magick identify *)",
+      "Bash(awk '{print $1, $3}')"
     ]
   }
 }
