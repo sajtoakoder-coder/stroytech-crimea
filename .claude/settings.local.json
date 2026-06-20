@@ -110,7 +110,9 @@
       "Bash(sed -i '' 's/og:site_name\" content=\"СтройТех\"/og:site_name\" content=\"СтройТех-Р\"/g' projects.html technika.html)",
       "Bash(sed -i '' 's/парк спецтехники СтройТех:/парк спецтехники СтройТех-Р:/g' technika.html)",
       "Bash(sed -i '' 's/alt=\"Проект №5 — СтройТех\"/alt=\"Проект №5 — СтройТех-Р\"/g; s/alt=\"Проект №9 — СтройТех\"/alt=\"Проект №9 — СтройТех-Р\"/g; s/alt=\"Проект №8 — СтройТех\"/alt=\"Проект №8 — СтройТех-Р\"/g' index.html)",
-      "Bash(sed -i '' 's/компанией СтройТех \\(далее/компанией СтройТех-Р \\(далее/g; s/Оператор:<\\\\/strong> СтройТех/Оператор:<\\\\/strong> СтройТех-Р/g' privacy.html)"
+      "Bash(sed -i '' 's/компанией СтройТех \\(далее/компанией СтройТех-Р \\(далее/g; s/Оператор:<\\\\/strong> СтройТех/Оператор:<\\\\/strong> СтройТех-Р/g' privacy.html)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget"
     ]
   }
 }
