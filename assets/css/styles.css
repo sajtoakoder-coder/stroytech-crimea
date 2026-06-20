@@ -2203,6 +2203,88 @@
   @media(max-width: 900px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
   @media(max-width: 600px) { .projects-grid { grid-template-columns: 1fr; gap: 18px; } .page-projects main { padding: 36px 0 60px; } }
 
+  /* ── СТРАНИЦА УСЛУГ ── */
+  .page-uslugi header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--nav-bg); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border); padding: 18px 0;
+  }
+  .page-uslugi header .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .page-uslugi .brand { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; color: var(--text); text-decoration: none; letter-spacing: .02em; }
+  .page-uslugi .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s;
+  }
+  .page-uslugi .back:hover { color: var(--amber); }
+  .page-uslugi main { padding: 56px 0 80px; }
+
+  .uslugi-head { max-width: 640px; margin-bottom: 56px; }
+  .uslugi-head h1 {
+    font-size: clamp(30px, 5vw, 52px); font-weight: 700;
+    line-height: 1.05; letter-spacing: -.01em; margin: 14px 0 16px;
+  }
+  .uslugi-head p { color: var(--muted); font-size: 16px; line-height: 1.8; }
+
+  .uslugi-list { display: flex; flex-direction: column; gap: 32px; }
+
+  .uslugi-card {
+    display: grid; grid-template-columns: 280px 1fr; gap: 40px;
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+    padding: 36px; align-items: start;
+    transition: border-color .25s;
+  }
+  .uslugi-card:hover { border-color: var(--amber); }
+
+  .uslugi-card__img-wrap {
+    width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+    background: var(--surface); border-radius: 12px; overflow: hidden;
+  }
+  .uslugi-card__img-wrap img { width: 80%; height: 80%; object-fit: contain; }
+
+  .uslugi-card__body { display: flex; flex-direction: column; gap: 12px; }
+
+  .uslugi-card__num {
+    font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 700;
+    color: var(--border); line-height: 1;
+  }
+  .uslugi-card h2 {
+    font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 600;
+    color: var(--text); line-height: 1.3; margin: 0;
+  }
+  .uslugi-card p { font-size: 16px; color: var(--muted); line-height: 1.7; margin: 0; }
+
+  .uslugi-card__includes {
+    list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 8px;
+  }
+  .uslugi-card__includes li {
+    position: relative; padding-left: 20px; font-size: 15px; color: var(--text); line-height: 1.5;
+  }
+  .uslugi-card__includes li::before {
+    content: ''; position: absolute; left: 0; top: 8px;
+    width: 8px; height: 8px; border-radius: 50%; background: var(--amber);
+  }
+
+  .uslugi-card__cta {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 8px;
+    font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--amber); text-decoration: none;
+    transition: gap .2s;
+  }
+  .uslugi-card__cta:hover { gap: 15px; }
+
+  @media(max-width: 768px) {
+    .uslugi-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+    .uslugi-card__img-wrap { max-width: 200px; }
+    .page-uslugi main { padding: 36px 0 60px; }
+  }
+
+  .page-uslugi footer {
+    border-top: 1px solid var(--border); padding: 28px 0;
+    color: var(--muted); font-size: 13px; text-align: center;
+  }
+  .page-uslugi footer a { color: var(--amber); text-decoration: none; }
+
   /* «Смотреть все проекты» под слайдером на главной */
   .slider-all-link {
     display: inline-flex; align-items: center; gap: 10px; margin-top: 32px;
