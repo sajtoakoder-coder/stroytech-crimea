@@ -212,6 +212,7 @@
     flex-shrink: 0;
     transition: background .25s, border-color .25s, box-shadow .25s;
   }
+  .nav-icon-link:visited { color: var(--amber); }
   .nav-icon-link:hover {
     border-color: var(--amber);
     background: rgba(232,160,32,.08);
@@ -1657,19 +1658,24 @@
      ───────────────────────────────────────────────────────────── */
   body.page-privacy { line-height: 1.7; -webkit-font-smoothing: antialiased; }
   .page-privacy .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
-  .page-privacy header {
+  .page-privacy header,
+  .page-uslugi header {
     border-bottom: 1px solid var(--border);
     padding: 20px 0; position: sticky; top: 0;
     background: var(--bg); z-index: 10;
   }
-  .page-privacy header .wrap { display: flex; align-items: center; justify-content: space-between; }
-  .page-privacy .back {
+  .page-privacy header .wrap,
+  .page-uslugi header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .page-privacy .back,
+  .page-uslugi .back {
     display: inline-flex; align-items: center; gap: 8px;
     color: var(--muted); text-decoration: none; font-size: 13px;
     letter-spacing: .04em; transition: color .2s;
   }
-  .page-privacy .back:hover { color: var(--amber); }
-  .page-privacy .brand { font-weight: 700; letter-spacing: .04em; font-size: 15px; }
+  .page-privacy .back:hover,
+  .page-uslugi .back:hover { color: var(--amber); }
+  .page-privacy .brand,
+  .page-uslugi .brand { font-weight: 700; letter-spacing: .04em; font-size: 15px; }
   .page-privacy main { padding: 48px 0 80px; }
   .page-privacy h1 {
     font-size: clamp(28px, 5vw, 44px); font-weight: 700;

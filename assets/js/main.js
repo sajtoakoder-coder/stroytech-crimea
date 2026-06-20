@@ -428,7 +428,12 @@
   const cbSuccess = document.getElementById('cbSuccess');
 
   function openCallback() { if (cbModal) cbModal.classList.add('open'); }
-  function closeCallback() { if (cbModal) cbModal.classList.remove('open'); }
+  function closeCallback() {
+    if (cbModal) cbModal.classList.remove('open');
+    if (cbSuccess) cbSuccess.classList.remove('show');
+    if (cbForm) { cbForm.style.display = ''; cbForm.reset(); }
+    if (cbError) { cbError.textContent = ''; cbError.classList.remove('show'); }
+  }
 
   if (cbClose) cbClose.addEventListener('click', closeCallback);
   if (cbModal) {
