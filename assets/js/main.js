@@ -49,7 +49,7 @@
   // ─── THEME ───
   const html = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
-  const saved = (function(){try{return localStorage.getItem('theme');}catch(e){return null;}})() || 'dark';
+  const saved = (function(){try{return localStorage.getItem('theme');}catch(e){return null;}})() || 'light';
   html.setAttribute('data-theme', saved);
   if (themeToggle) themeToggle.setAttribute('aria-pressed', saved === 'light' ? 'true' : 'false');
 
@@ -410,4 +410,67 @@
   // Динамический год в футере
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // ─── CALLBACK MODAL ───
+  const cbModal = document.getElementById('callbackModal');
+  const cbClose = document.getElementById('callbackClose');
+  const cbForm  = document.getElementById('callbackForm');
+  const cbError = document.getElementById('cbError');
+  const cbSuccess = document.getElementById('cbSuccess');
+
+  function openCallback() { if (cbModal) cbModal.classList.add('open'); }
+  function closeCallback() { if (cbModal) cbModal.classList.remove('open'); }
+
+  if (cbClose) cbClose.addEventListener('click', closeCallback);
+  if (cbModal) {
+    cbModal.querySelector('.callback-modal__backdrop')?.addEventListener('click', closeCallback);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && cbModal.classList.contains('open')) closeCallback();
+    });
+  }
+
+  if (cbForm) {
+    cbForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (cbError) { cbError.textContent = ''; cbError.classList.remove('show'); }
+
+      const honeypot = cbForm.querySelector('input[name="website"]');
+      if (honeypot && honeypot.value.trim()) {
+        cbForm.style.display = 'none';
+        cbSuccess && cbSuccess.classList.add('show');
+        return;
+      }
+
+      const name  = document.getElementById('cbName');
+      const phone = document.getElementById('cbPhone');
+      let valid = true;
+      [name, phone].forEach(el => {
+        if (!el) return;
+        el.classList.remove('error');
+        if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+      });
+      if (phone && phone.value.trim() && !PHONE_RE.test(phone.value.trim())) {
+        phone.classList.add('error'); valid = false;
+      }
+      if (!valid) {
+        if (cbError) { cbError.textContent = 'Заполните имя и корректный телефон.'; cbError.classList.add('show'); }
+        return;
+      }
+
+      const payload = {
+        name: name.value.trim().slice(0,100),
+        phone: phone.value.trim().slice(0,20),
+        service: 'Обратный звонок',
+        budget: '', city: '', message: '', ts: ''
+      };
+
+      try {
+        await fetch(SHEETS_URL + '?' + new URLSearchParams(payload).toString(), { mode: 'no-cors' });
+        cbForm.style.display = 'none';
+        cbSuccess && cbSuccess.classList.add('show');
+      } catch (err) {
+        if (cbError) { cbError.textContent = 'Ошибка отправки. Позвоните: +7 (950) 778-77-77'; cbError.classList.add('show'); }
+      }
+    });
+  }
 })();
