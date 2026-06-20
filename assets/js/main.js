@@ -478,12 +478,17 @@
         budget: '', city: '', message: '', ts: ''
       };
 
+      const cbBtn = cbForm.querySelector('button[type="submit"]');
+      if (cbBtn) { cbBtn.disabled = true; cbBtn.querySelector('.btn-label').textContent = 'Отправка…'; }
+
       try {
         await fetch(SHEETS_URL + '?' + new URLSearchParams(payload).toString(), { mode: 'no-cors' });
         cbForm.style.display = 'none';
         cbSuccess && cbSuccess.classList.add('show');
       } catch (err) {
         if (cbError) { cbError.textContent = 'Ошибка отправки. Позвоните: +7 (950) 778-77-77'; cbError.classList.add('show'); }
+      } finally {
+        if (cbBtn) { cbBtn.disabled = false; cbBtn.querySelector('.btn-label').textContent = 'Жду звонка'; }
       }
     });
   }
