@@ -1945,12 +1945,13 @@
   .pmodal.is-open .pmodal__specs { opacity: 1; transform: translateY(0); }
   .pmodal__specs li {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 0;
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
     font-size: 15px;
+    gap: 16px;
   }
-  .pmodal__specs li span:first-child { color: var(--muted); }
-  .pmodal__specs li span:last-child { color: var(--text); font-weight: 500; font-size: 16px; }
+  .pmodal__specs li span:first-child { color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+  .pmodal__specs li span:last-child { color: var(--text); font-weight: 500; font-size: 16px; text-align: right; }
 
   .pmodal__cta {
     display: inline-flex; align-items: center; gap: 10px;
@@ -2204,12 +2205,13 @@
 
   /* «Смотреть все проекты» под слайдером на главной */
   .slider-all-link {
-    display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
-    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em;
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 24px;
+    font-family: 'Space Mono', monospace; font-size: 14px; letter-spacing: .1em;
     text-transform: uppercase; color: var(--amber); text-decoration: none;
     transition: gap .2s;
+    position: relative; z-index: 2;
   }
-  .slider-all-link:hover { gap: 13px; }
+  .slider-all-link:hover { gap: 15px; }
 
   /* Галерея-листание в модалке проекта */
   .pmodal__gal-btn {
@@ -2419,7 +2421,9 @@
     justify-content: center;
     font-size: 15px;
     padding: 14px 20px;
+    color: #fff;
   }
+  .promo-btn:hover { color: #fff; }
 
   /* ── CALLBACK MODAL ── */
   .callback-modal {
