@@ -714,7 +714,7 @@
   .service-item--wide .srv-wide-body { position: relative; z-index: 1; max-width: 720px; }
   .service-item--wide::after { opacity: 0 !important; background: none !important; }
   .service-item--wide:hover::after { opacity: 0 !important; background: none !important; }
-  .service-item--wide .srv-icon { -webkit-mask-image: none; mask-image: none; }
+  .service-item--wide .srv-icon { -webkit-mask-image: linear-gradient(to bottom left, #000 55%, transparent 90%); mask-image: linear-gradient(to bottom left, #000 55%, transparent 90%); }
   @media(max-width: 900px) {
     .service-item--wide .srv-icon { -webkit-mask-image: linear-gradient(to bottom left, #000 40%, transparent 75%); mask-image: linear-gradient(to bottom left, #000 40%, transparent 75%); }
   }
@@ -2361,7 +2361,7 @@
     align-items: center;
     justify-content: center;
     background: var(--amber);
-    color: #fff;
+    color: var(--bg);
     font-family: 'Space Mono', monospace;
     font-size: 13px;
     font-weight: 700;
@@ -2420,9 +2420,9 @@
     justify-content: center;
     font-size: 15px;
     padding: 14px 20px;
-    color: #fff;
+    color: var(--bg);
   }
-  .promo-btn:hover { color: #fff; }
+  .promo-btn:hover { color: var(--bg); }
 
   /* ── CALLBACK MODAL ── */
   .callback-modal {
