@@ -2104,7 +2104,8 @@
      СТРАНИЦА «НАШИ ПРОЕКТЫ» (projects.html)
      ───────────────────────────────────────────── */
   body.page-projects { line-height: 1.7; -webkit-font-smoothing: antialiased; }
-  .page-projects .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  .page-projects .wrap,
+  .page-uslugi .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
   .page-projects header,
   .page-uslugi header {
     border-bottom: 1px solid var(--border);
