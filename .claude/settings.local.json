@@ -106,7 +106,11 @@
       "Bash(cwebp -q 80 01.jpg -o 01.webp)",
       "Bash(cwebp -q 80 project166.jpg -o project166.webp)",
       "Bash(cwebp -q 80 project167.jpg -o project167.webp)",
-      "Bash(cwebp -q 80 project21.png -o project21.webp)"
+      "Bash(cwebp -q 80 project21.png -o project21.webp)",
+      "Bash(sed -i '' 's/og:site_name\" content=\"СтройТех\"/og:site_name\" content=\"СтройТех-Р\"/g' projects.html technika.html)",
+      "Bash(sed -i '' 's/парк спецтехники СтройТех:/парк спецтехники СтройТех-Р:/g' technika.html)",
+      "Bash(sed -i '' 's/alt=\"Проект №5 — СтройТех\"/alt=\"Проект №5 — СтройТех-Р\"/g; s/alt=\"Проект №9 — СтройТех\"/alt=\"Проект №9 — СтройТех-Р\"/g; s/alt=\"Проект №8 — СтройТех\"/alt=\"Проект №8 — СтройТех-Р\"/g' index.html)",
+      "Bash(sed -i '' 's/компанией СтройТех \\(далее/компанией СтройТех-Р \\(далее/g; s/Оператор:<\\\\/strong> СтройТех/Оператор:<\\\\/strong> СтройТех-Р/g' privacy.html)"
     ]
   }
 }
