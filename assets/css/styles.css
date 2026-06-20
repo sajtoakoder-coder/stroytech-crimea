@@ -2113,8 +2113,7 @@
     background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 20;
   }
   .page-projects header .wrap,
-  .page-uslugi header .wrap,
-  .page-uslugi header .container { display: flex; align-items: center; justify-content: space-between; }
+  .page-uslugi header .wrap { display: flex; align-items: center; justify-content: space-between; }
   .page-projects .brand,
   .page-uslugi .brand { font-weight: 700; letter-spacing: .04em; font-size: 15px; color: var(--text); text-decoration: none; }
   .page-projects .back,
