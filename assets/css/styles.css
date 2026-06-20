@@ -714,7 +714,7 @@
   .service-item--wide .srv-wide-body { position: relative; z-index: 1; max-width: 720px; }
   .service-item--wide::after { opacity: 0 !important; background: none !important; }
   .service-item--wide:hover::after { opacity: 0 !important; background: none !important; }
-  .service-item--wide .srv-icon { -webkit-mask-image: linear-gradient(to bottom left, #000 55%, transparent 90%); mask-image: linear-gradient(to bottom left, #000 55%, transparent 90%); }
+  .service-item--wide .srv-icon { -webkit-mask-image: linear-gradient(to bottom left, #000 35%, transparent 75%); mask-image: linear-gradient(to bottom left, #000 35%, transparent 75%); }
   @media(max-width: 900px) {
     .service-item--wide .srv-icon { -webkit-mask-image: linear-gradient(to bottom left, #000 40%, transparent 75%); mask-image: linear-gradient(to bottom left, #000 40%, transparent 75%); }
   }
