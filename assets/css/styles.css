@@ -140,7 +140,7 @@
     background: var(--amber);
   }
 
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+  .container { max-width: 1440px; margin: 0 auto; padding: 0 48px; }
   @media(max-width: 768px) { .container { padding: 0 24px; } }
 
   /* NAV */
@@ -181,7 +181,7 @@
     filter: brightness(1.05);
   }
   .footer-brand .logo-img { height: 42px; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
   .nav-links a {
     font-size: 14px;
     letter-spacing: .07em;
@@ -1376,17 +1376,17 @@
   .rp-text { font-size: 15px; color: var(--muted); line-height: 1.5; }
   @media(max-width: 960px) { .rental-grid { grid-template-columns: 1fr; gap: 32px; } .rental-cards { grid-template-columns: 1fr 1fr; } .rental-perks { grid-template-columns: 1fr 1fr; } }
   @media(max-width: 600px) { .rental-cards { grid-template-columns: 1fr; } .rental-perks { grid-template-columns: 1fr; } .rental-grid { margin-bottom: 40px; } }
-  .footer-brand p { font-size: 15px; color: var(--muted); max-width: 240px; line-height: 1.7; }
+  .footer-brand p { font-size: 16px; color: var(--text); max-width: 280px; line-height: 1.7; opacity: .75; }
   .footer-col h4 {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: .18em;
+    font-size: 11px;
+    letter-spacing: .16em;
     color: var(--amber);
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col ul a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a { font-size: 15px; color: var(--text); opacity: .7; text-decoration: none; transition: opacity .2s; }
   .footer-col ul a:hover { color: var(--text); }
   /* FOOTER QR */
   .footer-qr-wrap {
@@ -1395,7 +1395,7 @@
     margin-top: 24px;
   }
   .footer-qr-item {
-    min-width: 140px;
+    min-width: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1451,7 +1451,7 @@
   }
   .footer-bottom {
     display: flex; align-items: center; justify-content: space-between;
-    font-size: 11px; color: var(--muted); letter-spacing: .03em;
+    font-size: 13px; color: var(--muted); letter-spacing: .03em;
   }
   @media(max-width: 900px) {
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1890,7 +1890,7 @@
     border-top: 1px solid var(--border);
     color: var(--amber);
     font-family: 'Space Mono', monospace;
-    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    font-size: 14px; letter-spacing: .14em; text-transform: uppercase;
     cursor: pointer;
     transition: background .2s;
     flex-shrink: 0;
@@ -1919,7 +1919,7 @@
   .pmodal.is-open .pmodal__badge { opacity: 1; transform: translateX(0); }
 
   .pmodal__title {
-    font-size: clamp(17px, 1.8vw, 24px);
+    font-size: clamp(20px, 2vw, 28px);
     font-weight: 700; color: var(--text);
     line-height: 1.2; margin-bottom: 10px;
     opacity: 0; transform: translateY(12px);
@@ -1928,7 +1928,7 @@
   .pmodal.is-open .pmodal__title { opacity: 1; transform: translateY(0); }
 
   .pmodal__desc {
-    font-size: 13px; color: var(--muted);
+    font-size: 16px; color: var(--muted);
     line-height: 1.7; margin-bottom: 18px;
     opacity: 0; transform: translateY(12px);
     transition: opacity .4s .3s ease, transform .4s .3s ease;
@@ -1947,10 +1947,10 @@
     display: flex; justify-content: space-between; align-items: center;
     padding: 8px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 12px;
+    font-size: 15px;
   }
   .pmodal__specs li span:first-child { color: var(--muted); }
-  .pmodal__specs li span:last-child { color: var(--text); font-weight: 500; }
+  .pmodal__specs li span:last-child { color: var(--text); font-weight: 500; font-size: 16px; }
 
   .pmodal__cta {
     display: inline-flex; align-items: center; gap: 10px;
