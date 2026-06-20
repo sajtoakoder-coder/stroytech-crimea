@@ -71,6 +71,15 @@
     applyLogoTheme(next);
   });
 
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      var t = (function(){try{return localStorage.getItem('theme');}catch(e){return null;}})() || 'light';
+      html.setAttribute('data-theme', t);
+      if (themeToggle) themeToggle.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
+      applyLogoTheme(t);
+    }
+  });
+
   // NAV
   const navbar = document.getElementById('navbar');
   if (navbar) window.addEventListener('scroll', () => {
