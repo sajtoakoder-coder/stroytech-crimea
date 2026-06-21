@@ -116,7 +116,8 @@
       "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/image15.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/Image15.webp)",
       "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project10/project10-1st.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project10/project10-1st.webp)",
       "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project12/project12.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project12/project12.webp)",
-      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project21/project21.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project21/project21.webp)"
+      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project21/project21.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project21/project21.webp)",
+      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project15/project15.jpg -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project15/project15.webp)"
     ]
   }
 }
