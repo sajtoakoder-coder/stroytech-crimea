@@ -112,7 +112,11 @@
       "Bash(sed -i '' 's/alt=\"Проект №5 — СтройТех\"/alt=\"Проект №5 — СтройТех-Р\"/g; s/alt=\"Проект №9 — СтройТех\"/alt=\"Проект №9 — СтройТех-Р\"/g; s/alt=\"Проект №8 — СтройТех\"/alt=\"Проект №8 — СтройТех-Р\"/g' index.html)",
       "Bash(sed -i '' 's/компанией СтройТех \\(далее/компанией СтройТех-Р \\(далее/g; s/Оператор:<\\\\/strong> СтройТех/Оператор:<\\\\/strong> СтройТех-Р/g' privacy.html)",
       "mcp__visualize__read_me",
-      "mcp__visualize__show_widget"
+      "mcp__visualize__show_widget",
+      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/image15.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/Image15.webp)",
+      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project10/project10-1st.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project10/project10-1st.webp)",
+      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project12/project12.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project12/project12.webp)",
+      "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project21/project21.png -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project21/project21.webp)"
     ]
   }
 }
