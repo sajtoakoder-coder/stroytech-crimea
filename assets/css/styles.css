@@ -628,6 +628,11 @@
     .footer-qr-wrap { gap: 12px; }
     .footer-qr-img { width: 100%; height: auto; }
     .nav-phone { font-size: 11px; letter-spacing: 0; }
+    .nav-logo .logo-img { display: none; }
+    .nav-right { gap: 8px; flex: 1; justify-content: space-between; }
+    .nav-inner { gap: 12px; }
+    .nav-icon-link { width: 30px; height: 30px; }
+    .nav-icon-link svg { width: 15px; height: 15px; }
     .nav-icon-link.nav-map-link { display: flex; }
     [data-theme="light"] .form-group input::placeholder,
     [data-theme="light"] .form-group textarea::placeholder { color: var(--muted); }
@@ -1564,16 +1569,6 @@
 
   /* ─── CTA ПОЛОСА МЕЖДУ СЕКЦИЯМИ ─── */
   .cta-strip { display: none; }
-  @media(max-width: 768px) {
-    .cta-strip {
-      display: block;
-      padding: 20px 0;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-    }
-    .cta-strip .container { display: flex; }
-    .cta-strip .btn-primary { flex: 1; justify-content: center; }
-  }
 
   /* ─── A11Y HELPERS ─── */
   .visually-hidden {
