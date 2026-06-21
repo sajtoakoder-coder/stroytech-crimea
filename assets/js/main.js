@@ -433,6 +433,7 @@
     if (cbSuccess) cbSuccess.classList.remove('show');
     if (cbForm) { cbForm.style.display = ''; cbForm.reset(); }
     if (cbError) { cbError.textContent = ''; cbError.classList.remove('show'); }
+    if (window.turnstile) { const el = document.getElementById('cbTurnstile'); if (el) window.turnstile.reset(el); }
   }
 
   if (cbClose) cbClose.addEventListener('click', closeCallback);
@@ -466,16 +467,25 @@
       if (phone && phone.value.trim() && !PHONE_RE.test(phone.value.trim())) {
         phone.classList.add('error'); valid = false;
       }
+      const cbConsent = document.getElementById('cbConsent');
+      if (cbConsent && !cbConsent.checked) {
+        cbConsent.classList.add('error');
+        if (cbError) { cbError.textContent = 'Подтвердите согласие на обработку персональных данных.'; cbError.classList.add('show'); }
+        return;
+      }
+
       if (!valid) {
         if (cbError) { cbError.textContent = 'Заполните имя и корректный телефон.'; cbError.classList.add('show'); }
         return;
       }
 
+      const cbTsToken = cbForm.querySelector('[name="cf-turnstile-response"]')?.value || '';
+
       const payload = {
         name: name.value.trim().slice(0,100),
         phone: phone.value.trim().slice(0,20),
         service: 'Обратный звонок',
-        budget: '', city: '', message: '', ts: ''
+        budget: '', city: '', message: '', ts: cbTsToken
       };
 
       const cbBtn = cbForm.querySelector('button[type="submit"]');
@@ -487,6 +497,7 @@
         cbSuccess && cbSuccess.classList.add('show');
       } catch (err) {
         if (cbError) { cbError.textContent = 'Ошибка отправки. Позвоните: +7 (950) 778-77-77'; cbError.classList.add('show'); }
+        if (window.turnstile) { const el = document.getElementById('cbTurnstile'); if (el) window.turnstile.reset(el); }
       } finally {
         if (cbBtn) { cbBtn.disabled = false; cbBtn.querySelector('.btn-label').textContent = 'Жду звонка'; }
       }
