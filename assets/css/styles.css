@@ -411,12 +411,12 @@
     background: var(--amber);
     color: #0e0e0d;
     font-family: 'Space Mono', monospace;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: .14em;
     text-transform: uppercase;
     padding: 18px 36px;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 700;
     transition: background .15s, transform .15s;
     -webkit-clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
     clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
@@ -646,7 +646,7 @@
     .process-step { padding: 0; }
     .form-success h3 { font-size: 24px; }
     /* Кнопки на всю ширину */
-    .btn-primary, .btn-outline { font-size: 14px; padding: 15px 20px; }
+    .btn-primary, .btn-outline { font-size: 14px; padding: 15px 20px; font-weight: 700; }
     /* Сервисы */
     .service-item { padding: 32px 24px; }
     .srv-num { font-size: 36px; }
@@ -1506,7 +1506,7 @@
     .footer-qr-label, .footer-qr-hint { font-size: 12px; }
     .review-role { font-size: 12px; }
     .rc-price { font-size: 13px; }
-    .btn-primary, .btn-outline { font-size: 13px; }
+    .btn-primary, .btn-outline { font-size: 13px; font-weight: 700; }
     .srv-desc, .cat-desc, .step-desc, .wf-desc,
     .certif-label, .region-desc, .stat-label,
     .cd-text, .form-note, .footer-col ul a,
