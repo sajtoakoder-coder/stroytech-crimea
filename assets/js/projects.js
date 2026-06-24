@@ -460,7 +460,6 @@
   var pmodalStatus = document.getElementById('pmodalStatus');
   var pmodalTitle = document.getElementById('pmodalTitle');
   var pmodalDesc = document.getElementById('pmodalDesc');
-  var pmodalSpecs = document.getElementById('pmodalSpecs');
   var pmodalPlanBtn = document.getElementById('pmodalPlanBtn');
   var pmodalClose = document.getElementById('pmodalClose');
   var galPrev = document.getElementById('pmodalGalPrev');
@@ -520,17 +519,6 @@
     }
     pmodalTitle.textContent = p.title;
     pmodalDesc.textContent = p.desc;
-    pmodalSpecs.innerHTML = '';
-    p.specs.forEach(function (s) {
-      var li = document.createElement('li');
-      var s1 = document.createElement('span');
-      var s2 = document.createElement('span');
-      s1.textContent = s[0];
-      s2.textContent = s[1];
-      li.appendChild(s1);
-      li.appendChild(s2);
-      pmodalSpecs.appendChild(li);
-    });
     currentPlans = p.plans || [];
     pmodalPlanBtn.style.display = currentPlans.length ? '' : 'none';
 
