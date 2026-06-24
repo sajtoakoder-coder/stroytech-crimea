@@ -10,6 +10,6 @@ Disallow: /consent.html
 Disallow: /cookies.html
 Disallow: /privacy.html
 
-Host: https://stroytech-crimea.vercel.app
+Host: https://стройтехр.рф
 
-Sitemap: https://stroytech-crimea.vercel.app/sitemap.xml
+Sitemap: https://стройтехр.рф/sitemap.xml
