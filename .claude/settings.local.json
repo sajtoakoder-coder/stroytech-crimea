@@ -120,7 +120,10 @@
       "Bash(cwebp -q 80 -resize 1200 0 /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project15/project15.jpg -o /Users/kirillkovalev/Documents/Tex_Stroy/assets/img/project15/project15.webp)",
       "Bash(node -c assets/js/main.js)",
       "Bash(node -c assets/js/projects.js)",
-      "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \"node_modules/*\" \".planning/*\" \"package.json\" \"package-lock.json\" \"vercel.json\" \".gitignore\" \"*.md\")"
+      "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \"node_modules/*\" \".planning/*\" \"package.json\" \"package-lock.json\" \"vercel.json\" \".gitignore\" \"*.md\")",
+      "Bash(find /Users/kirillkovalev/Documents -maxdepth 3 -type d -iname \"*bunker*\" -o -type d -iname \"*krepost*\" -o -type d -iname \"*бункер*\" -o -type d -iname \"*крепост*\" 2>/dev/null)",
+      "Bash(cwebp -q 75 -resize 1200 0 3dplan.webp -o ../bunker-krepost-3d.webp)",
+      "Bash(cwebp -q 75 -resize 1200 0 resultat.webp -o ../bunker-krepost-real.webp)"
     ]
   }
 }
