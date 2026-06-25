@@ -1,7 +1,7 @@
 (function () {
   'use strict';
   // ─── GOOGLE SHEETS — вставь сюда URL своего Apps Script ───
-  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbww9d11Dk7rQEtfPOGQOMlOiKz152ERq-W-p6AEqVdCR28xiwWR4iu8xj9ylTej5_ObyQ/exec';
+  const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwEoV2EkYyCCmpcn_Y0Dspgvm6U-Hvpg7UG4y-xoQlL5f9jVU59nPHNJboEWe81yRLARQ/exec';
 
   // ─── REDUCED MOTION ───
   const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -374,9 +374,6 @@
         return;
       }
 
-      // Turnstile: берём токен если есть, но не блокируем отправку
-      const tsToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
-
       const fd = new FormData(contactForm);
       const raw = Object.fromEntries(fd.entries());
       const payload = {
@@ -386,7 +383,6 @@
         budget:  (raw.budget  || '').slice(0, 50),
         city:    (raw.city    || '').trim().slice(0, 100),
         message: (raw.message || '').trim().slice(0, 1000),
-        ts:      tsToken,
       };
 
       setLoading(true);
@@ -396,7 +392,6 @@
         });
 
         try { sessionStorage.setItem('_ls', Date.now().toString()); } catch(e) {}
-        if (window.turnstile) window.turnstile.reset();
         contactForm.style.transition = 'opacity .3s';
         contactForm.style.opacity = '0';
         setTimeout(() => {
@@ -433,7 +428,6 @@
     if (cbSuccess) cbSuccess.classList.remove('show');
     if (cbForm) { cbForm.style.display = ''; cbForm.reset(); }
     if (cbError) { cbError.textContent = ''; cbError.classList.remove('show'); }
-    if (window.turnstile) { const el = document.getElementById('cbTurnstile'); if (el) window.turnstile.reset(el); }
   }
 
   if (cbClose) cbClose.addEventListener('click', closeCallback);
@@ -479,13 +473,11 @@
         return;
       }
 
-      const cbTsToken = cbForm.querySelector('[name="cf-turnstile-response"]')?.value || '';
-
       const payload = {
         name: name.value.trim().slice(0,100),
         phone: phone.value.trim().slice(0,20),
         service: 'Обратный звонок',
-        budget: '', city: '', message: '', ts: cbTsToken
+        budget: '', city: '', message: ''
       };
 
       const cbBtn = cbForm.querySelector('button[type="submit"]');
@@ -497,7 +489,6 @@
         cbSuccess && cbSuccess.classList.add('show');
       } catch (err) {
         if (cbError) { cbError.textContent = 'Ошибка отправки. Позвоните: +7 (950) 778-77-77'; cbError.classList.add('show'); }
-        if (window.turnstile) { const el = document.getElementById('cbTurnstile'); if (el) window.turnstile.reset(el); }
       } finally {
         if (cbBtn) { cbBtn.disabled = false; cbBtn.querySelector('.btn-label').textContent = 'Жду звонка'; }
       }

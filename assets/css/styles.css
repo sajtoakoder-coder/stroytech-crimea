@@ -1332,7 +1332,6 @@
     .contact-grid { grid-template-columns: 1fr; gap: 56px; }
     .form-row { grid-template-columns: 1fr; }
     .form-card { padding: 20px 16px; border-radius: 14px; overflow: hidden; }
-    .cf-turnstile { max-width: 100%; overflow: hidden; }
   }
 
   /* FOOTER */

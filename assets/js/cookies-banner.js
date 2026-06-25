@@ -29,21 +29,9 @@
     } catch (e) {}
   }
 
-  /* ── Загрузка Cloudflare Turnstile (только после согласия) ── */
-  function loadTurnstile() {
-    if (document.querySelector('script[src*="turnstile"]')) return;
-    var s = document.createElement('script');
-    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    s.defer = true;
-    document.head.appendChild(s);
-  }
-
   /* ── Применить выбор ── */
   function applyConsent(value) {
     save(value);
-    /* Turnstile — функциональный cookie (CAPTCHA для формы).
-       Загружаем при любом согласии, но только после него, не при первом рендере. */
-    loadTurnstile();
     if (value === 'all') {
       /* Здесь добавить загрузку аналитики при появлении (Яндекс.Метрика, GTM и т.д.) */
       /* Пример: loadYandexMetrika(XXXXXXXX); */
@@ -69,7 +57,7 @@
       '<div class="cb-inner">',
         '<div class="cb-text">',
           '<strong>Этот сайт использует файлы cookie.</strong> ',
-          'Мы используем технические cookie для корректной работы сайта (тема, защита форм). ',
+          'Мы используем технические cookie для корректной работы сайта (тема оформления). ',
           'С вашего согласия — также аналитические. ',
           'Подробнее в <a href="cookies.html" target="_blank" rel="noopener">политике cookie</a> ',
           'и <a href="privacy.html" target="_blank" rel="noopener">политике конфиденциальности</a>.',
