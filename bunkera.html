@@ -168,6 +168,11 @@ ym(110019499, "init", { ssr:true, webvisor:true, clickmap:true, ecommerce:"dataL
     window.addEventListener('touchend', function(){ dragging = false; });
   });
 })();
+
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, {threshold: 0.15});
+document.querySelectorAll('.bunker-hero, .bunker-feature, .bunker-spec, .bunker-project').forEach(function(el){ obs.observe(el); });
 </script>
 
 </body>
