@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Redirect stroytehr.ru → стройтехр.рф
+RewriteCond %{HTTP_HOST} ^stroytehr\.ru$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www\.stroytehr\.ru$ [NC]
+RewriteRule ^(.*)$ https://стройтехр.рф/$1 [R=301,L]
+
+# Remove .html from URLs (except index.html → /)
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^ / [R=301,L]
+
+RewriteCond %{THE_REQUEST} /(.+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Serve .html files without extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+)$ $1.html [L]

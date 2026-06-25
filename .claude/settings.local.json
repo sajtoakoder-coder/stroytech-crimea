@@ -123,7 +123,10 @@
       "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \"node_modules/*\" \".planning/*\" \"package.json\" \"package-lock.json\" \"vercel.json\" \".gitignore\" \"*.md\")",
       "Bash(find /Users/kirillkovalev/Documents -maxdepth 3 -type d -iname \"*bunker*\" -o -type d -iname \"*krepost*\" -o -type d -iname \"*бункер*\" -o -type d -iname \"*крепост*\" 2>/dev/null)",
       "Bash(cwebp -q 75 -resize 1200 0 3dplan.webp -o ../bunker-krepost-3d.webp)",
-      "Bash(cwebp -q 75 -resize 1200 0 resultat.webp -o ../bunker-krepost-real.webp)"
+      "Bash(cwebp -q 75 -resize 1200 0 resultat.webp -o ../bunker-krepost-real.webp)",
+      "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \".cursor/*\" \".DS_Store\" \"node_modules/*\" \".gitignore\" \"package.json\" \"README.md\" \"vercel.json\" \"assets/img/bunker_krepost/*\")",
+      "Bash(rm -f /Users/kirillkovalev/Documents/stroytech-site.zip)",
+      "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \".cursor/*\" \".DS_Store\" \"*/.DS_Store\" \"node_modules/*\" \".gitignore\" \"package.json\" \"README.md\" \"vercel.json\" \"assets/img/bunker_krepost/*\")"
     ]
   }
 }
