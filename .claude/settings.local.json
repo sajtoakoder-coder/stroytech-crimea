@@ -126,7 +126,15 @@
       "Bash(cwebp -q 75 -resize 1200 0 resultat.webp -o ../bunker-krepost-real.webp)",
       "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \".cursor/*\" \".DS_Store\" \"node_modules/*\" \".gitignore\" \"package.json\" \"README.md\" \"vercel.json\" \"assets/img/bunker_krepost/*\")",
       "Bash(rm -f /Users/kirillkovalev/Documents/stroytech-site.zip)",
-      "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \".cursor/*\" \".DS_Store\" \"*/.DS_Store\" \"node_modules/*\" \".gitignore\" \"package.json\" \"README.md\" \"vercel.json\" \"assets/img/bunker_krepost/*\")"
+      "Bash(zip -r /Users/kirillkovalev/Documents/stroytech-site.zip . -x \".git/*\" \".claude/*\" \".cursor/*\" \".DS_Store\" \"*/.DS_Store\" \"node_modules/*\" \".gitignore\" \"package.json\" \"README.md\" \"vercel.json\" \"assets/img/bunker_krepost/*\")",
+      "Bash(find /Users/kirillkovalev -name \"market.dc.html\" -maxdepth 5 2>/dev/null)",
+      "Bash(mkdir -p /Users/kirillkovalev/Documents/market)",
+      "Bash(cp /Users/kirillkovalev/Downloads/market-концепт.html /Users/kirillkovalev/Documents/market/)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -m uvicorn app.main:app --host 0.0.0.0 --port 8000)",
+      "Bash(curl -s http://localhost:8000/api/health)",
+      "Bash(curl -s http://localhost:8000/docs)",
+      "Bash(git init *)"
     ]
   }
 }
